@@ -9,7 +9,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "DEPLOY_ENV=STATIC nuxt generate",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --ignore-unclean --cleanup"
+    "deploy": "push-dir --dir=dist --branch=gh-pages --allow-unclean --cleanup"
   },
   "dependencies": {
     "kenticocloud-nuxt-module": "^1.2.0",
