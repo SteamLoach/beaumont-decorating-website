@@ -1,0 +1,22 @@
+{
+  "name": "beaumont-decorating-website",
+  "version": "1.0.0",
+  "description": "Beaumont Decorating Brochure Website",
+  "author": "Tom Armstrong",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "DEPLOY_ENV=STATIC nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --ignore-unclean --cleanup"
+  },
+  "dependencies": {
+    "kenticocloud-nuxt-module": "^1.2.0",
+    "nuxt": "^2.0.0",
+    "rxjs": "^6.5.2"
+  },
+  "devDependencies": {
+    "push-dir": "^0.4.1"
+  }
+}
