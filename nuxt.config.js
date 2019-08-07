@@ -35,6 +35,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~plugins/masterResolver.js',
+    '~plugins/globalComponents.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -45,12 +47,16 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    'kenticocloud-nuxt-module'
+    'kenticocloud-nuxt-module',
+    '@nuxtjs/style-resources'
   ],
   kenticocloud: {
-    projectId: '0fb91298-5e41-003e-f2c1-e66741931430',
+    projectId: '0f81047c-b080-00b5-2a45-a9fe3d725c0d',
     enableAdvancedLogging: false,
     previewApiKey: ''
+  },
+  styleResources: {
+    scss: ['assets/styles/main.scss']
   },
   /*
   ** Build configuration

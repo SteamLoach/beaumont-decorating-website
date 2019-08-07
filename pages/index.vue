@@ -1,51 +1,67 @@
 <template>
-<div>
-<h1>Index</h1>
-<nuxt-link to="/about">About</nuxt-link>
-<button @click="toggle"
-        :class="classObject">Toggle Me</button>
-</div>
+
+  <div class="page-wrapper"
+       :style="background">
+    <h1 class="box">Index</h1>
+  </div>
+
 </template>
+
+
+
 
 <script>
 
-export default {
+import {pageResolver} from '~/mixins/pageResolver.js'; 
+import {backgroundImage} from '~/mixins/backgroundImage.js' ;
 
-  data() {
-    
+  
+export default {
+  
+  //this can probably be a mixin
+  head() {
     return {
-      
-      classObject: {
-        blue: true
-      }
-      
+      title: this.Page.metaTitle
+    }
+  },
+  
+  async fetch ({store}) {
+    await store.dispatch('getPage', {codename: "home_page", fill: 
+      "homePage"}) ; 
+  },
+  
+  mixins: [pageResolver, backgroundImage],
+  
+  computed: {
+    
+    background: function() {
+      return this.setBackground(this.Page.backgroundImageAssets[1].url) ; 
     }
     
   },
   
-  methods: {
-    
-    toggle: function() {
-      this.classObject['blue'] = !this.classObject['blue'];  
+  data() {
+    return {
+      mxn_StoreReference: 'homePage'
     }
-    
-  }
+  },
+  
   
 }
+  
 </script>
 
-<style>
-  
-  button {
-    font-size: 48px;
-    padding: 50px;
+
+<style lang="scss">
+
+  .page-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
-  .blue {
-    background-color: blue;
-  }
-
-
 </style>
 
 

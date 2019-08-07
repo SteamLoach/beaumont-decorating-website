@@ -17,6 +17,9 @@
     "rxjs": "^6.5.2"
   },
   "devDependencies": {
-    "push-dir": "^0.4.1"
+    "@nuxtjs/style-resources": "^0.1.2",
+    "node-sass": "^4.12.0",
+    "push-dir": "^0.4.1",
+    "sass-loader": "^7.1.0"
   }
 }
