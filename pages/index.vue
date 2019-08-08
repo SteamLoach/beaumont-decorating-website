@@ -2,7 +2,13 @@
 
   <div class="page-wrapper"
        :style="background">
-    <h1 class="box">Index</h1>
+    
+    <nav>
+      <nuxt-link v-for="item in navItems"
+                 :to="item.route.value"> {{item.title.value}} </nuxt-link>
+  
+    </nav>
+    
   </div>
 
 </template>
@@ -26,8 +32,10 @@ export default {
   },
   
   async fetch ({store}) {
-    await store.dispatch('getPage', {codename: "home_page", fill: 
-      "homePage"}) ; 
+    
+    await store.dispatch('getContentByCodename', {codename: "home_page", fill: 
+      "homePage"}) ;
+    
   },
   
   mixins: [pageResolver, backgroundImage],
@@ -36,6 +44,10 @@ export default {
     
     background: function() {
       return this.setBackground(this.Page.backgroundImageAssets[1].url) ; 
+    },
+    
+    navItems: function() {
+      return this.$store.state.mainNavMenu['menu_items'] ; 
     }
     
   },
