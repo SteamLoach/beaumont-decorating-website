@@ -1,6 +1,3 @@
-//Import root Vue instance
-import Vue from 'vue' ; 
-
 //Converts object keys to camel case
 const toCamel = (s) => {
   return s.replace(/([-_][a-z])/ig, ($1) => {
@@ -10,8 +7,7 @@ const toCamel = (s) => {
   });
 };
 
-//Not entirely sure how this thing works
-const masterResolver = (contentModel, counter = 0) => {
+export const masterResolver = (contentModel, counter) => {
     let resolvedModel = {} ;
     const resolve = (key, content) => {
         resolvedModel[toCamel(key)] = content ;
@@ -22,7 +18,7 @@ const masterResolver = (contentModel, counter = 0) => {
         if (key !== 'system' && key !== 'elements') {
             
             let type = contentModel.elements[key].type ;
-            let counter = 0 ;
+            counter = counter || 0;
           
             (type === 'text' || type === 'rich_text') ? resolve(key, contentModel[key].value):
             
@@ -50,4 +46,8 @@ const masterResolver = (contentModel, counter = 0) => {
     return resolvedModel ; 
 } ;
 
-Vue.prototype.$masterResolver = masterResolver ; 
+export default ({app}, inject) => {
+  inject('masterResolver', masterResolver) ;
+}
+
+

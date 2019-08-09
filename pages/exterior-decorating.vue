@@ -2,11 +2,7 @@
 
   <div class="page-wrapper">
     
-    <nav>
-      <nuxt-link v-for="item in navItems"
-                 :to="item.route.value"> {{item.title.value}} </nuxt-link>
-  
-    </nav>
+
     
     <button :class="button"
             @click="toggle">Clicko</button>
@@ -27,12 +23,6 @@ export default {
     
   },
   
-   computed: { 
-    navItems: function() {
-      return this.$store.state.mainNavMenu['menu_items'] ; 
-    }
-    
-  },
   
   methods: {
     toggle: function() {

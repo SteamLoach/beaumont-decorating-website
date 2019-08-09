@@ -1,13 +1,8 @@
 <template>
 
-  <div class="page-wrapper"
-       :style="background">
+  <div class="page-wrapper">
     
-    <nav>
-      <nuxt-link v-for="item in navItems"
-                 :to="item.route.value"> {{item.title.value}} </nuxt-link>
-  
-    </nav>
+    <h1>Home</h1>
     
   </div>
 
@@ -18,10 +13,6 @@
 
 <script>
 
-import {pageResolver} from '~/mixins/pageResolver.js'; 
-import {backgroundImage} from '~/mixins/backgroundImage.js' ;
-
-  
 export default {
   
   //this can probably be a mixin
@@ -33,32 +24,22 @@ export default {
   
   async fetch ({store}) {
     
-    await store.dispatch('getContentByCodename', {codename: "home_page", fill: 
-      "homePage"}) ;
+    await store.dispatch('cms/getContentByCodename', {
+      codename: "home_page",
+      mutation: 'setContentByCodename',
+      fill: "homePage"
+    }) ;
     
   },
-  
-  mixins: [pageResolver, backgroundImage],
-  
+    
   computed: {
     
-    background: function() {
-      return this.setBackground(this.Page.backgroundImageAssets[1].url) ; 
+    Page: function() {
+      return this.$store.state.cms.homePage ; 
     },
-    
-    navItems: function() {
-      return this.$store.state.mainNavMenu['menu_items'] ; 
-    }
-    
+        
   },
-  
-  data() {
-    return {
-      mxn_StoreReference: 'homePage'
-    }
-  },
-  
-  
+    
 }
   
 </script>
