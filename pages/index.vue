@@ -22,16 +22,17 @@ export default {
     }
   },
   
-  async fetch ({store}) {
+  async fetch ({ store }) {
     
     await store.dispatch('cms/getContentByCodename', {
       codename: "home_page",
-      mutation: 'setContentByCodename',
-      fill: "homePage"
-    }) ;
-    
+      mutation: 'cms/setContentByCodename',
+      module: 'cms',
+      name: "homePage"
+    }) ; 
   },
-    
+  
+ 
   computed: {
     
     Page: function() {

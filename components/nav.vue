@@ -3,7 +3,7 @@
   <nav>
   
     <nuxt-link v-for="link in Nav.menuItems"
-               :id="link.id"
+               :key="link.id"
                :to="link.route"> {{link.title}} </nuxt-link>
   
   </nav>
@@ -17,7 +17,7 @@ export default {
   
   computed: {
     Nav: function() {
-      return this.$store.state.cms.Nav ;
+      return this.$store.state.menus.primaryNav ;
     }
   }
   

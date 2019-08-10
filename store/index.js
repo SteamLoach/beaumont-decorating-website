@@ -1,13 +1,10 @@
 export const state = () => ({
   
+  reference: 'rootState',
+  debug: true,
   
 })
 
-export const mutations = {
-  
-
-  
-}
 
 export const actions = {
   
@@ -15,10 +12,15 @@ export const actions = {
     
     await dispatch('cms/getContentByCodename', {
         codename: 'main_nav_menu',
-        mutation: 'navExtender',
-        fill: 'Nav'
+        mutation: 'menus/navExtender',
+        module: 'menus',
+        name: 'primaryNav'
       }) ; 
       //seems like we can await multiple calls here - try footer etc too
   },
+  
 }
+
+
+
 
