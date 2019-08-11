@@ -2,7 +2,6 @@
 
   <div class="page-wrapper">
     
-    <h1>Home</h1>
     
   </div>
 
@@ -13,7 +12,11 @@
 
 <script>
 
+
+  
 export default {
+  
+  layout: 'homepage',
   
   //this can probably be a mixin
   head() {
@@ -48,13 +51,7 @@ export default {
 
 <style lang="scss">
 
-  .page-wrapper {
-    width: 100%;
-    min-height: 100vh;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+
   
 </style>
 

@@ -51,7 +51,7 @@ export default {
     '@nuxtjs/style-resources'
   ],
   kenticocloud: {
-    projectId: '0f81047c-b080-00b5-2a45-a9fe3d725c0d',
+    projectId: '2fa7a314-d0bb-001c-d636-065df5831621',
     enableAdvancedLogging: false,
     previewApiKey: ''
   },

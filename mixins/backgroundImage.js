@@ -2,7 +2,7 @@ export const backgroundImage = {
   
   methods: {
     
-    setBackground: function(target) {
+    makeBackground: function(target) {
       return {backgroundImage: `url('${target}')` } ; 
     }
     

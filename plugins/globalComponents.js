@@ -1,6 +1,6 @@
 import Vue from 'vue' ; 
 
-import navMenu from '~/components/nav.vue' ; 
+import topNav from '~/components/top-nav/top-nav.vue' ; 
 
 
-Vue.component('nav-menu', navMenu) ; 
+Vue.component('top-nav', topNav) ; 

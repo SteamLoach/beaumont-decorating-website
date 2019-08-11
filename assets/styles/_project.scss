@@ -1,9 +1,4 @@
-%box {
-  width: 100px;
-  height: 100px;
-  background-color: $brand-4;
-}
-
-.box {
-  color: $brand-3;
+//Page Defaults
+.page-wrapper {
+  min-height: 100vh;
 }
