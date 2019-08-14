@@ -33,7 +33,7 @@ export default {
 <style lang="scss" scoped>
   
   %burger-bar {
-    background-color: $brand-3;
+    background-color: $brand-1;
     height: 5px;
     width: 50px;
     border-radius: 15px;
@@ -45,9 +45,7 @@ export default {
   .nav-toggle-wrapper {
     z-index: 15;
     overflow: visible;
-    @include container(center, center);
-    height: 50px;
-    width: 60px;
+    padding: 15px 10px 35px 10px;
     margin-left: auto;
   }
   
@@ -63,25 +61,24 @@ export default {
  
     }
     &:before {
-      top: -12px
+      top: 10px
     }
     &:after {
-      top: 12px
+      top: 20px
     }
     &:hover {
       cursor: pointer;
     }
   }
   .nav-toggle.is-active { 
-    
-    background-color: transparent;
-
+  
+    transform: translate(0px, 10px) rotate(-135deg);
     
     &:before {
-      transform: translate(0px, 12px) rotate(-135deg);
+      transform: scale(0) translate(0px, -20px) rotate(-270deg);
     }
     &:after {
-      transform: translate(0px, -12px) rotate(135deg);
+      transform: translate(0px, -20px) rotate(270deg);
     }
   }
 

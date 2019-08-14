@@ -52,6 +52,7 @@ export default {
   .top-nav {
     @include row(start, center);
     flex-wrap: wrap;
+    font-family: $secondary-font;
   }
   
   .nav-link-wrapper {
@@ -63,10 +64,10 @@ export default {
   }
   
   .nav-link {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     padding-left: 0.5rem;
     @include y-pad(0.5rem);
-    background-color: rgba(236, 234, 235, 0.6);
+    background-color: rgba(236, 234, 235, 0.9);
     
     //Effect
     position: relative;
