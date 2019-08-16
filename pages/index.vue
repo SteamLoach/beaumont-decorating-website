@@ -2,7 +2,9 @@
 
   <div class="page-wrapper">
     
-    <h1 class="site-title">Beaumont Decorating</h1>
+    <img class="title-image" src="~/assets/Beaumont Decorating Logo.png"/>
+    
+    <button class="title-cta">Book a Quote</button>
     
   </div>
 
@@ -52,19 +54,28 @@ export default {
 
 <style lang="scss">
 
-  .site-title {
+  .title-image {
     @include column(24);
-      @include column-break($touch, 18);
+    @include x-pad(.2rem);
+    margin-top: $outer-space-base;
+    margin-bottom: $outer-space-medium;
+  }
+  
+  .title-cta {
+    display: block;
     margin: 0 auto;
-    @include margin-from(500px, top, $outer-space-light);
-    line-height: 1.2;
-    font-size: 2.2rem;
-      @include font-size-from(360px, 2.4rem);
-        @include font-size-from(400px, 2.6rem);
-          @include font-size-from($touch, 3rem);
-            @include font-size-from(600px, 4rem);
-              @include font-size-from($tablet, 5rem);
-    text-align: center;
+    @include x-pad($space-medium);
+    @include y-pad($space-light);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $brand-1;
+    border: solid 2px $brand-1;
+    border-radius: 25px;
+    
+    &:hover {
+      color: $offset-font-color;
+      background-color: $brand-1;
+    }
   }
   
 </style>

@@ -58,21 +58,23 @@ export default {
   .nav-link-wrapper {
     @include column(24);
     position: absolute;
-    z-index: 10;
+    left: -100%;
     top: 100%;
     margin-top: 1rem;
   }
   
   .nav-link {
     font-size: 1.8rem;
-    padding-left: 0.5rem;
-    @include y-pad(0.5rem);
-    background-color: rgba(236, 234, 235, 0.9);
+    padding-left: $space-light;
+    @include y-pad($space-light);
+    margin-bottom: $space-light;
+    background-color: rgba(236, 234, 235, 1);
+    @include centered-shadow(light);
     
     //Effect
     position: relative;
-    left: -100%;
     top: 2rem;
+    left: 0;
     opacity: 0;
     
     transition: left, top, opacity;
@@ -81,9 +83,10 @@ export default {
   }
   
   .nav-link-wrapper.is-active {
+    
     .nav-link {
 
-      left: 0;
+      left: 100%;
       top: 0;
       opacity: 1;
     
