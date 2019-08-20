@@ -3,8 +3,8 @@
   <div class="page-wrapper">
     
     <img class="title-image" src="~/assets/Beaumont Decorating Logo.png"/>
-    
-    <button class="title-cta">Book a Quote</button>
+    <button class="cta title-cta">Book a Quote</button>
+    <content-panels :panels="Page.contentPanels"></content-panels>
     
   </div>
 
@@ -37,8 +37,7 @@ export default {
       name: "homePage"
     }) ; 
   },
-  
- 
+   
   computed: {
     
     Page: function() {
@@ -57,25 +56,15 @@ export default {
   .title-image {
     @include column(24);
     @include x-pad(.2rem);
-    margin-top: $outer-space-base;
+    margin-top: $outer-space-light;
     margin-bottom: $outer-space-medium;
   }
   
   .title-cta {
     display: block;
     margin: 0 auto;
-    @include x-pad($space-medium);
-    @include y-pad($space-light);
+    margin-bottom: $outer-space-medium;
     font-size: 1.2rem;
-    font-weight: 600;
-    color: $brand-1;
-    border: solid 2px $brand-1;
-    border-radius: 25px;
-    
-    &:hover {
-      color: $offset-font-color;
-      background-color: $brand-1;
-    }
   }
   
 </style>

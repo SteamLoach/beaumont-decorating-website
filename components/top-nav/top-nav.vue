@@ -64,10 +64,10 @@ export default {
   }
   
   .nav-link {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     padding-left: $space-light;
     @include y-pad($space-light);
-    margin-bottom: $space-light;
+    margin-bottom: $space-lighter;
     background-color: rgba(236, 234, 235, 1);
     @include centered-shadow(light);
     

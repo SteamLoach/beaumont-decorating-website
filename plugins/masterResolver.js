@@ -18,7 +18,7 @@ export const masterResolver = (contentModel, counter) => {
         if (key !== 'system' && key !== 'elements') {
             
             let type = contentModel.elements[key].type ;
-            counter = counter || 0;
+            let counter = 0;
           
             (type === 'text' || type === 'rich_text') ? resolve(key, contentModel[key].value):
             

@@ -36,8 +36,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~plugins/masterResolver.js',
-    '~plugins/globalComponents.js'
+    '~plugins/globalComponents.js',
+    '~plugins/masterResolver.js'
   ],
   /*
   ** Nuxt.js dev-modules

@@ -1,5 +1,6 @@
 <template>
-  <div class="full-page-background">
+  <div class="full-page-background"
+       :style="background">
     <top-nav></top-nav>
     <nuxt />
   </div>
@@ -27,7 +28,6 @@ export default {
 <style lang="scss">
 
   .full-page-background {
-    background-image: url('~assets/Homepage Background.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

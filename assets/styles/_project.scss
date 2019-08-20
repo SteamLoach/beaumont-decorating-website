@@ -12,3 +12,21 @@ h6 {
 .page-wrapper {
   min-height: 100vh;
 }
+
+
+
+//CTAs
+
+.cta {
+  @include x-pad($space-medium);
+  @include y-pad($space-light);
+  font-weight: 600;
+  color: $brand-1;
+  border: solid 2px $brand-1;
+  border-radius: 25px;
+    
+  &:hover {
+    color: $offset-font-color;
+    background-color: $brand-1;
+  }
+}
