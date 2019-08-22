@@ -1,8 +1,8 @@
 <template>
   
-    <div class="nav-toggle-wrapper">
+    <div class="nav-toggle-wrapper"
+         @click="mobileNavToggle">
       <div class="nav-toggle"
-           @click="mobileNavToggle"
            :class="state"></div>
     </div>
 
@@ -47,6 +47,10 @@ export default {
     overflow: visible;
     padding: 15px 10px 35px 10px;
     margin-left: auto;
+    
+    &:hover {
+      cursor: pointer;
+    }
   }
   
   .nav-toggle {
@@ -65,9 +69,6 @@ export default {
     }
     &:after {
       top: 20px
-    }
-    &:hover {
-      cursor: pointer;
     }
   }
   .nav-toggle.is-active { 

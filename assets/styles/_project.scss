@@ -9,13 +9,13 @@ h6 {
   color: $brand-1;
 }
 
-.page-wrapper {
-  min-height: 100vh;
-}
-
-
-
 //CTAs
+
+@mixin centered-background() {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .cta {
   @include x-pad($space-medium);

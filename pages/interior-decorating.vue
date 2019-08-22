@@ -1,10 +1,8 @@
 <template>
 
-  <div class="page-wrapper">
+  <div>
     
-        
-    <button :class="button"
-            @click="toggle">Clicko</button>
+    <content-panels :panels="Page.contentPanels"></content-panels>
     
   </div>
 
@@ -12,31 +10,35 @@
 
 <script>
 
-export default {
   
-  data() {
-    
-    return {
-      button: {red: false}
-    }
-    
-  },
+import {metaData} from '~/mixins/metaData.js';
 
-  methods: {
-    toggle: function() {
-      
-      this.button['red'] = !this.button['red'] ; 
-      
+export default {
+
+  mixins: [metaData],
+  
+  async fetch( {store} ) {
+    
+    await store.dispatch('cms/getContentByCodename', {
+      codename: "interior_decorating",
+      mutation: 'cms/setContentByCodename',
+      module: 'cms',
+      name: 'interiorDecorating'    
+    }) ; 
+  },
+  
+  computed: {
+    Page: function() {
+      return this.$store.state.cms.interiorDecorating ; 
     }
   }
+  
   
 }
 
 </script>
 
-<style>
+<style lang="scss">
 
-  .red {
-    background-color: darkred;
-  }
+
 </style>

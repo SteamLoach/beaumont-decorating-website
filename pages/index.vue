@@ -1,6 +1,6 @@
 <template>
 
-  <div class="page-wrapper">
+  <div>
     
     <img class="title-image" src="~/assets/Beaumont Decorating Logo.png"/>
     <button class="cta title-cta">Book a Quote</button>
@@ -15,18 +15,11 @@
 
 <script>
 
-
+import {metaData} from '~/mixins/metaData.js'; 
   
 export default {
   
-  layout: 'homepage',
-  
-  //this can probably be a mixin
-  head() {
-    return {
-      title: this.Page.metaTitle
-    }
-  },
+  mixins: [metaData],
   
   async fetch ({ store }) {
     
@@ -63,7 +56,7 @@ export default {
   .title-cta {
     display: block;
     margin: 0 auto;
-    margin-bottom: $outer-space-medium;
+    margin-bottom: $outer-space-heavy;
     font-size: 1.2rem;
   }
   

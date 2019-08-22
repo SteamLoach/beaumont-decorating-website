@@ -1,12 +1,8 @@
 <template>
 
-  <div class="page-wrapper">
-    
-
-    
+  <div>
     <button :class="button"
-            @click="toggle">Clicko</button>
-    
+            @click="toggle">Clicko</button> 
   </div>
 
 </template>
@@ -41,4 +37,5 @@ export default {
   .blue {
     background-color: navy;
   }
+  
 </style>

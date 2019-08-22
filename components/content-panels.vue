@@ -13,6 +13,7 @@
 <script>
 
 import teaserPanel from '~/components/content-panels/teaser-panel.vue';
+import servicePanel from '~/components/content-panels/service-panel.vue';
   
 export default {
   
@@ -20,6 +21,7 @@ export default {
   
   components: {
     teaserPanel,
+    servicePanel
   }
   
 }

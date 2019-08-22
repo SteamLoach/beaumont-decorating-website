@@ -10,6 +10,7 @@
       <div v-for="link in topNav.navLinks"
            :key="link.id"
            :style="delay(link)"
+           @click="mobileNavClose"
            class="nav-link">
         <nuxt-link :to="link.route"> {{link.title}} </nuxt-link>
       </div>  
@@ -22,6 +23,8 @@
 
 <script>
 
+
+import {mapMutations} from 'vuex';  
 import responsiveNavToggle from './responsive-nav-toggle.vue';
   
 export default {
@@ -37,9 +40,15 @@ export default {
   },
   
   methods: {
+    
     delay: function(ref) {
       return {transitionDelay: `${ref.id / 10}s`}
-    }
+    },
+    
+    ...mapMutations({
+      mobileNavClose: 'menus/mobileNavClose'
+    })
+    
   }
   
 }
@@ -53,6 +62,7 @@ export default {
     @include row(start, center);
     flex-wrap: wrap;
     font-family: $secondary-font;
+    color: $brand-1;
   }
   
   .nav-link-wrapper {

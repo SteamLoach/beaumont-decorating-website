@@ -2,9 +2,9 @@
   
   <article>
   
-    <div v-for="teaser in teaserItems"
+    <div v-for="teaser in content.teaserItems"
          :key="teaser.id"
-         :style="teaser.background"
+         :style="makeBackground(teaser.image[0].url)"
          class="teaser-item">
       <div class="teaser-content">
         <h3 class="teaser-title"> {{ teaser.title }} </h3>
@@ -31,18 +31,6 @@ export default {
   
   mixins: [backgroundImage],
   
-  computed: {
-    teaserItems: function() {
-      let teaserItems = this.content.teaserItems ; 
-      
-      teaserItems.forEach(item => {
-        item['background'] = this.makeBackground(item.image[0].url)
-      }) ; 
-      
-      return teaserItems;
-    }
-  }
-  
 }
 
 </script>
@@ -51,37 +39,38 @@ export default {
 
 
 <style lang="scss">
-
+  
+  $teaser-item-spacing: $space-light;
+  
   .teaser-item {
+    overflow: hidden;
     margin: 0 auto;
     @include column(22);
-    margin-bottom: $outer-space-light;
+    margin-bottom: $outer-space-heavier;
     text-align: center;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 10px;
+    @include centered-background();
+    border-radius: 5px;
     @include centered-shadow(medium);
   }
   
   .teaser-content {
-    @include y-pad($space-light);
+    @include y-pad($space-medium);
     background-color: rgba(233, 233, 233, 0.6);
     
   }
     
   .teaser-title {
-    margin-bottom: $space-lighter;
+    margin-bottom: $teaser-item-spacing;
   }
     
   .teaser-text {
-    margin-bottom: $space-lighter;
-    @include x-pad($space-lighter);
+    margin-bottom: $teaser-item-spacing;
+    @include x-pad($teaser-item-spacing);
   }
     
   //add cta styling to 'project.scss'
   .teaser-cta {
-    margin-bottom: $space-lighter;
+    margin-bottom: $teaser-item-spacing;
   }
      
   

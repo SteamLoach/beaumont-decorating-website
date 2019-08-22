@@ -10,6 +10,10 @@ export default {
   
   mobileNavToggle(state) {
     state.topNav.state['is-active'] = !state.topNav.state['is-active'] ; 
+  },
+  
+  mobileNavClose(state) {
+    state.topNav.state['is-active'] = false ; 
   }
   
   
