@@ -20,24 +20,12 @@ import {metaData} from '~/mixins/metaData.js';
 export default {
   
   mixins: [metaData],
-  
-  async fetch ({ store }) {
-    
-    await store.dispatch('cms/getContentByCodename', {
-      codename: "home_page",
-      mutation: 'cms/setContentByCodename',
-      module: 'cms',
-      name: "homePage"
-    }) ; 
-  },
-   
+     
   computed: {
-    
     Page: function() {
       return this.$store.state.cms.homePage ; 
-    },
-        
-  },
+    }
+  }
     
 }
   

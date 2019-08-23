@@ -17,16 +17,6 @@ export default {
 
   mixins: [metaData],
   
-  async fetch( {store} ) {
-    
-    await store.dispatch('cms/getContentByCodename', {
-      codename: "interior_decorating",
-      mutation: 'cms/setContentByCodename',
-      module: 'cms',
-      name: 'interiorDecorating'    
-    }) ; 
-  },
-  
   computed: {
     Page: function() {
       return this.$store.state.cms.interiorDecorating ; 

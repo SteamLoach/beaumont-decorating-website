@@ -14,11 +14,14 @@ export const actions = {
         codename: 'top_nav',
         mutation: 'menus/navExtender',
         module: 'menus',
-        name: 'topNav'
       }) ; 
-      //seems like we can await multiple calls here - try footer etc too
+    
+    await dispatch('cms/getContentByModel', {
+      model: 'page_template',
+      mutation: 'cms/resolveToStore',
+      module: 'cms'
+    }) ; 
   },
-  
 }
 
 

@@ -46,7 +46,7 @@ export default {
     overflow: hidden;
     margin: 0 auto;
     @include column(22);
-    margin-bottom: $outer-space-heavier;
+    margin-bottom: $outer-space-heavy;
     text-align: center;
     @include centered-background();
     border-radius: 5px;

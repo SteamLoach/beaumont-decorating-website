@@ -1,5 +1,5 @@
 export const state = () => ({
   
-  reference: "menus"
-  
+  reference: "menus",
+
 }) ; 

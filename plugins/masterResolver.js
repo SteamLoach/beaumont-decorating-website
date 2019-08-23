@@ -7,18 +7,21 @@ const toCamel = (s) => {
   });
 };
 
-export const masterResolver = (contentModel, counter) => {
-    let resolvedModel = {} ;
-    const resolve = (key, content) => {
+const masterResolver = (contentModel, counter) => {
+  
+  let resolvedModel = {} ;
+    
+  const resolve = (key, content) => {
         resolvedModel[toCamel(key)] = content ;
         resolvedModel.componentReference = toCamel(contentModel.system.type) ;
         (counter > 0) ? resolvedModel.id = counter : '' ; 
-    } ; 
-    Object.keys(contentModel).forEach(key => {
+  } ; 
+    
+  Object.keys(contentModel).forEach(key => {
         if (key !== 'system' && key !== 'elements') {
             
             let type = contentModel.elements[key].type ;
-            let counter = 0;
+            let counter = 0 ;
           
             (type === 'text' || type === 'rich_text') ? resolve(key, contentModel[key].value):
             
@@ -48,6 +51,7 @@ export const masterResolver = (contentModel, counter) => {
 
 export default ({app}, inject) => {
   inject('masterResolver', masterResolver) ;
+  inject('toCamel', toCamel) ;
 }
 
 

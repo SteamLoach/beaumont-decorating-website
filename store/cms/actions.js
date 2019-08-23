@@ -1,57 +1,60 @@
 export default {
   /*
-  getContentByCodename is called with the following 'options' object
+  Both cms runners are called with an 'options' object
   
     options: {
-    
-      codename: content item we want to retrieve (eg: 'home_page'),
       
-      mutation: how the content is resolved and commited to the store
-                the mutation must be called relative to the root,
+    //getContentByCodename
+      codename: content item we want to retrieve (eg: 'home_page'),
+    //getContentByModel
+      model: content model we want to retrieve (eg: 'page_template')
+      
+      mutation: how the content is resolved and commited to the store.
+                The mutation must be called relative to the root,
                 ie: menus/navExtender
                 
       module: the module in which to store the content
       
-      name: the variable to which the content will be assigned
-      
     }
   
-  it outputs a 'content' object, which is passed to the defined mutation
+  The runners output a 'content' object, which is passed to the defined mutation
   
     content: {
-      output: the returned `response.item`,
-      target: the `options.fill` store object reference 
+      output: the unresolved content item(s),
+      target: the name of the variable in which the content will be stored,
+              generally the camelCased `system.codename` of the content item
     }
   
-  the function works from the rootState of the store so it is module agnostic as long as the correct options are passed to it
+  Both functions work from the rootState of the store and as such are module agnostic as long as the correct options are passed.
   
   */
   getContentByCodename (context, options) {
-    
-    if (!context.rootState[options.module][options.name]) {
-            
-      return this.$deliveryClient
-        .item(options.codename)
+    return this.$deliveryClient
+      .item(options.codename)
+        .depthParameter(6)
+          .getPromise()
+            .then(response => {
+              context.commit(options.mutation, {
+                output: response.item, 
+                target: this.$toCamel(options.codename)
+              }, {root: true}) ;                    
+            }) ; 
+  },
+  
+  getContentByModel (context, options) {
+    return this.$deliveryClient
+      .items()
+        .type(options.model)
           .depthParameter(6)
             .getPromise()
               .then(response => {
-                context.commit(options.mutation, {output: response.item, target: options.name}, {root: true}) ;
-                  
-                  if (context.rootState.debug) {
-                    
-                    console.log(
-                      `${options.name} fetched using a "${context.state.reference}" module action and  created in "${options.module}" module via ${options.mutation}`)
-                  }
-              
-        
+                response.items.forEach(item => {
+                context.commit(options.mutation, {
+                  output: item,
+                  target: this.$toCamel(item.system.codename)
+                }, {root: true}) ; 
               }) ; 
-    } else {
-      
-      if (context.rootState.debug) {
-        console.log(`${options.name} already exists in "${options.module}" module`) ;
-      }
-      
-      
-   }
-  },  
+            })
+  }
+  
 }
