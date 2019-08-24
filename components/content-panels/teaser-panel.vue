@@ -1,6 +1,6 @@
 <template>
   
-  <article>
+  <article class="teaser-panel">
   
     <div v-for="teaser in content.teaserItems"
          :key="teaser.id"
@@ -40,12 +40,17 @@ export default {
 
 <style lang="scss">
   
-  $teaser-item-spacing: $space-light;
+  .teaser-panel {
+    @include row(center, center);
+  }
   
   .teaser-item {
     overflow: hidden;
-    margin: 0 auto;
     @include column(22);
+      @include column-break(625px, 18);
+        @include custom-break($laptop, 725px);
+          @include column-break($desktop, 8);
+    @include x-margin-from($desktop, $outer-space-medium);
     margin-bottom: $outer-space-heavy;
     text-align: center;
     @include centered-background();
@@ -60,17 +65,19 @@ export default {
   }
     
   .teaser-title {
-    margin-bottom: $teaser-item-spacing;
+    @include x-pad($space-lighter);
+      @include x-pad-from($touch, $space-light);
+    margin-bottom: $space-light;
   }
     
   .teaser-text {
-    margin-bottom: $teaser-item-spacing;
-    @include x-pad($teaser-item-spacing);
+    margin-bottom: $space-light;
+    @include x-pad($space-light);
+      @include x-pad-from($touch, $space-medium)
   }
     
-  //add cta styling to 'project.scss'
   .teaser-cta {
-    margin-bottom: $teaser-item-spacing;
+    margin-bottom: $space-light;
   }
      
   

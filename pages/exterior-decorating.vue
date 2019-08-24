@@ -1,41 +1,39 @@
 <template>
 
   <div>
-    <button :class="button"
-            @click="toggle">Clicko</button> 
+  
+    <page-highlight :content="Page.featureImage[0]"></page-highlight>
+    
+    <div class="page-header">
+      <h1> Exterior Decorating Services </h1>
+    </div>
+    
+    <content-panels :panels="Page.contentPanels"></content-panels>
+  
   </div>
 
 </template>
 
 <script>
 
+import {metaData} from '~/mixins/metaData.js';
+import {backgroundImage} from '~/mixins/backgroundImage.js';  
+  
 export default {
   
-  data() {
-    
-    return {
-      button: {blue: false}
-    }
-    
-  },
+  mixins: [metaData, backgroundImage],
   
-  
-  methods: {
-    toggle: function() {
-      
-      this.button['blue'] = !this.button['blue'] ; 
-      
-    }
+  computed: {
+    Page: function() {
+      return this.$store.state.cms.exteriorDecorating ; 
+    },   
   }
-  
 }
-
+  
 </script>
 
-<style>
+<style lang="scss">
 
-  .blue {
-    background-color: navy;
-  }
+
   
 </style>

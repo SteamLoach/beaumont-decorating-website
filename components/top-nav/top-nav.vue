@@ -9,7 +9,6 @@
       
       <div v-for="link in topNav.navLinks"
            :key="link.id"
-           :style="delay(link)"
            @click="mobileNavClose"
            class="nav-link">
         <nuxt-link :to="link.route"> {{link.title}} </nuxt-link>
@@ -41,10 +40,6 @@ export default {
   
   methods: {
     
-    delay: function(ref) {
-      return {transitionDelay: `${ref.id / 10}s`}
-    },
-    
     ...mapMutations({
       mobileNavClose: 'menus/mobileNavClose'
     })
@@ -59,48 +54,45 @@ export default {
 <style lang="scss" scoped>
 
   .top-nav {
+    z-index: 10;
     @include row(start, center);
-    flex-wrap: wrap;
+    @include y-pad($space-lighter);
+    padding-right: ($space-lighter);
     font-family: $secondary-font;
     color: $brand-1;
   }
   
   .nav-link-wrapper {
-    @include column(24);
+    overflow: hidden;
+    @include column(20);
     position: absolute;
-    left: -100%;
+    right: -100%;
     top: 100%;
     margin-top: 1rem;
+    text-align: center;
+    border-top-left-radius: $project-border-radius;
+    border-bottom-left-radius: $project-border-radius;
+    transition-property: right;
+    transition-duration: $project-transition-duration;
+    transition-timing-function: linear;
   }
   
   .nav-link {
-    font-size: 1.2rem;
-    padding-left: $space-light;
-    @include y-pad($space-light);
-    margin-bottom: $space-lighter;
-    background-color: rgba(236, 234, 235, 1);
-    @include centered-shadow(light);
-    
-    //Effect
     position: relative;
-    top: 2rem;
-    left: 0;
-    opacity: 0;
+    font-size: 1.2rem;
+    background-color: $page-background;
     
-    transition: left, top, opacity;
-    transition-duration: 0.2s;
-    transition-timing-function: cubic-bezier(0.88, 1.81, 1, 0.71);
+    a {
+      width: 100%;
+      @include y-pad($space-medium);
+    }
+    
   }
-  
+    
   .nav-link-wrapper.is-active {
     
-    .nav-link {
-
-      left: 100%;
-      top: 0;
-      opacity: 1;
+    right: 0;
     
-    }
   }
 
 </style>

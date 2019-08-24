@@ -1,6 +1,8 @@
 <template>
   <div class="page-wrapper">
     <top-nav></top-nav>
+    <div class="lightbox-overlay"
+         :class="{'is-active': overlayState}"></div>
     <nuxt />
   </div>
 </template>
@@ -10,6 +12,11 @@
   
 export default {
   
+  computed: {
+    overlayState: function() {
+      return this.$store.state.menus.topNav.state['is-active'] ;
+    }
+  }
   
 }
 
@@ -19,8 +26,43 @@ export default {
 <style lang="scss">
 
   .page-wrapper {
+    position: relative;
     min-height: 100vh;
-    background-color: $page-background;
+  }
+  
+  .page-header {
+    @include container(around, center);
+    width: 100%;
+    padding-top: $space-heavy;
+    margin-bottom: $outer-space-heavy;
+    
+    h1 {
+      @include column(22);
+      text-align: center;
+      line-height: 1.2;
+    }
+    
+    img {
+      @include column(8);
+    }
+    
+  }
+      
+  .lightbox-overlay {
+    z-index: 5;
+    position: absolute;
+    width: 0;
+    height: 0;
+    background-color: rgba(0,0,0,0.0);
+    transition-property: background-color;
+    transition-duration: $project-transition-duration;
+    transition-timing-function: ease-in-out;
+    
+    &.is-active {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
   }
   
 </style>

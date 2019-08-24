@@ -9,6 +9,10 @@ h6 {
   color: $brand-1;
 }
 
+body {
+  background-color: $page-background;
+}
+
 //CTAs
 
 @mixin centered-background() {
@@ -20,7 +24,6 @@ h6 {
 .cta {
   @include x-pad($space-medium);
   @include y-pad($space-light);
-  font-weight: 600;
   color: $brand-1;
   border: solid 2px $brand-1;
   border-radius: 25px;
@@ -30,3 +33,7 @@ h6 {
     background-color: $brand-1;
   }
 }
+
+//Theme
+$project-border-radius: 10px;
+$project-transition-duration: 0.3s;
