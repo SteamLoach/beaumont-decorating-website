@@ -29,24 +29,6 @@ export default {
     position: relative;
     min-height: 100vh;
   }
-  
-  .page-header {
-    @include container(around, center);
-    width: 100%;
-    padding-top: $space-heavy;
-    margin-bottom: $outer-space-heavy;
-    
-    h1 {
-      @include column(22);
-      text-align: center;
-      line-height: 1.2;
-    }
-    
-    img {
-      @include column(8);
-    }
-    
-  }
       
   .lightbox-overlay {
     z-index: 5;

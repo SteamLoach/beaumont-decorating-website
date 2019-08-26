@@ -14,6 +14,14 @@ export default {
   
   mobileNavClose(state) {
     state.topNav.state['is-active'] = false ; 
+  },
+  
+  navSticky(state) {
+    state.topNav.state['is-sticky'] = true ; 
+  },
+  
+  navStatic(state) {
+    state.topNav.state['is-sticky'] = false ; 
   }
   
   

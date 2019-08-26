@@ -1,7 +1,9 @@
 <template>
 
-  <nav class="top-nav">
+  <nav class="top-nav"
+       :class="topNav.state">
     
+    <img class="nav-logo" src="~/assets/beaumont_decorating_logo.png"/>
     <responsive-nav-toggle :state="topNav.state"></responsive-nav-toggle>
    
     <div class="nav-link-wrapper"
@@ -38,13 +40,43 @@ export default {
     },
   },
   
+  data() {
+    return {
+      navBar: '',
+    }
+  },
+  
+  destroyed() {
+    window.removeEventListener('scroll', this.StickyNav); 
+  },
+  
   methods: {
     
+    stickyNav: function() {
+      
+      if (window.scrollY > 0) {
+        this.navSticky();
+      }
+      else {
+        this.navStatic();
+      }
+    },
+    
     ...mapMutations({
-      mobileNavClose: 'menus/mobileNavClose'
+      mobileNavClose: 'menus/mobileNavClose',
+      navSticky: 'menus/navSticky',
+      navStatic: 'menus/navStatic'
     })
     
-  }
+  },
+  
+  mounted() {
+    
+    this.navBar = document.querySelector('.top-nav') ; 
+    this.navStart = this.navBar.offsetTop ;
+    window.addEventListener('scroll', this.stickyNav) ; 
+    
+  },
   
 }
 
@@ -55,11 +87,34 @@ export default {
 
   .top-nav {
     z-index: 10;
+    position: fixed;
+    top: 0;
     @include row(start, center);
     @include y-pad($space-lighter);
     padding-right: ($space-lighter);
     font-family: $secondary-font;
     color: $brand-1;
+    transition-duration: $project-transition-duration;
+    transition-property: box-shadow, background-color;
+    transition-timing-function: linear;
+    
+    &.is-sticky {
+      background-color: rgba(230, 230, 232, 0.8); 
+      @include down-shadow(light);
+      
+      .nav-logo {
+        transition-duration: $project-transition-duration;
+        transition-property: opacity;
+        transition-timing-function: ease-in;
+        opacity: 1;
+      }
+    }
+  }
+  
+  .nav-logo {
+    opacity: 0;
+    @include column(10);
+    padding-left: $space-lighter;
   }
   
   .nav-link-wrapper {

@@ -1,7 +1,8 @@
 <template>
 
   <article class="service-panel">
-  
+    
+    <h2>Services</h2>
     <div v-for="item in content.serviceItems"
          :key="item.id"
          class="service-item">
@@ -43,6 +44,10 @@ export default {
   
   .service-panel {
     @include row(center, center);
+    
+    h2 {
+      margin-bottom: $outer-space-medium;
+    }
   }
   
   .service-item {

@@ -2,12 +2,8 @@
 
   <div>
   
-    <page-highlight :content="Page.featureImage[0]"></page-highlight>
-    
-    <div class="page-header">
-      <h1> Interior Decorating Services </h1>
-    </div>
-    
+    <page-header :featureImage="Page.featureImage[0].url"
+                 :title="Page.pageTitle"></page-header>
     <content-panels :panels="Page.contentPanels"></content-panels>
   
   </div>
@@ -35,6 +31,6 @@ export default {
 
 <style lang="scss">
   
-
+  
 
 </style>

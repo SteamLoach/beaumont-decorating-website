@@ -27,12 +27,12 @@ export default {
     
     z-index: -1;
     position: absolute;
-    @include column(22);
-      @include custom-break(460px, 380px);
+    max-height: 100%;
           
     
     &.top {
       top: 0;
+      left: 0;
     }
     
     &.bottom {

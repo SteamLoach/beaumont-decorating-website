@@ -2,7 +2,7 @@
 
   <div>
     
-    <img class="title-image" src="~/assets/Beaumont Decorating Logo.png"/>
+    <img class="title-image" src="~/assets/beaumont_decorating_logo.png"/>
     <button class="cta title-cta">Book a Quote</button>
     <content-panels :panels="Page.contentPanels"></content-panels>
     
