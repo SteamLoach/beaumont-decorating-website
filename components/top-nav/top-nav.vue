@@ -8,11 +8,11 @@
    
     <div class="nav-link-wrapper"
          :class="topNav.state">
-      
       <div v-for="link in topNav.navLinks"
            :key="link.id"
            @click="mobileNavClose"
            class="nav-link">
+        <img class="navbar-swatch" src="~/assets/navbar_swatch.png"/>
         <nuxt-link :to="link.route"> {{link.title}} </nuxt-link>
       </div>  
     </div>
@@ -118,6 +118,7 @@ export default {
   }
   
   .nav-link-wrapper {
+    position: relative;
     overflow: hidden;
     @include column(20);
     position: absolute;
@@ -130,6 +131,14 @@ export default {
     transition-property: right;
     transition-duration: $project-transition-duration;
     transition-timing-function: linear;
+  }
+  
+  .navbar-swatch {
+    opacity: 0.4;
+    position: absolute;
+    max-height: 100%;
+    top: 0;
+    left: 0;
   }
   
   .nav-link {

@@ -3,7 +3,8 @@
   <div>
   
     <page-header :featureImage="Page.featureImage[0].url"
-                 :title="Page.pageTitle"></page-header>
+                 :title="Page.pageTitle"
+                 :strapline="Page.pageStrapline"></page-header>
     
     <content-panels :panels="Page.contentPanels"></content-panels>
   

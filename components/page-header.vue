@@ -4,7 +4,12 @@
   
     <div class="page-feature-image"
          :style="makeBackground(featureImage)">
-      <h1 class="page-title"> {{ title }} </h1>
+      
+      <div class="page-title-wrapper">
+        <h1 class="page-title"> {{ title }} </h1>
+        <p class="page-strapline"> {{ strapline }} </p>
+      </div>
+      
     </div>
   
   </section>
@@ -20,7 +25,7 @@ export default {
   
   mixins: [backgroundImage],
   
-  props:['featureImage', 'title']
+  props:['featureImage', 'title', 'strapline']
   
 }
 
@@ -36,14 +41,27 @@ export default {
     @include down-shadow(light);
   }
   
-  .page-title {
-    @include column(22);
-    padding-bottom: $space-light;
-    color: $offset-font-color;
-    font-size: 2.2rem;
+  .page-title-wrapper {
+    @include row(center, center);
+    align-content: center;
+    min-height: 100%;
     text-align: center;
+    color: $offset-font-color;
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8), rgba(0,0,0,0));
+  }
+  
+  .page-title {
+    @include column(24);
+    @include x-pad($space-medium);
+    padding-bottom: $space-lighter;
+    font-size: 2.2rem;
+    color: $offset-font-color;
+    font-weight: 800;
     line-height: 1.2;
-    text-shadow: -2px -2px 2px $brand-1;
+  }
+  
+  .page-strapline {
+    
   }
 
 </style>

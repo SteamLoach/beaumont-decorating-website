@@ -2,7 +2,11 @@
 
   <article class="service-panel">
     
-    <h2>Services</h2>
+    <div class="service-panel-header">
+      <h3 class="service-panel-title"> {{content.title}} </h3>
+      <p class="service-panel-intro"> {{content.intro}} </p>
+    </div>
+      
     <div v-for="item in content.serviceItems"
          :key="item.id"
          class="service-item">
@@ -44,10 +48,16 @@ export default {
   
   .service-panel {
     @include row(center, center);
-    
-    h2 {
-      margin-bottom: $outer-space-medium;
-    }
+  }
+  
+  .service-panel-header {
+    @include column(22);
+    text-align: center;
+    margin-bottom: $outer-space-medium;
+  }
+  
+  .service-panel-title {
+    padding-bottom: $space-light;
   }
   
   .service-item {
