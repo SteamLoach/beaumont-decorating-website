@@ -37,7 +37,7 @@ export default {
   .title-image {
     @include column(24);
     @include x-pad(.2rem);
-    margin-top: $outer-space-light;
+    padding-top: $outer-space-light;
     margin-bottom: $outer-space-medium;
   }
   

@@ -12,7 +12,6 @@
            :key="link.id"
            @click="mobileNavClose"
            class="nav-link">
-        <img class="navbar-swatch" src="~/assets/navbar_swatch.png"/>
         <nuxt-link :to="link.route"> {{link.title}} </nuxt-link>
       </div>  
     </div>
@@ -114,6 +113,7 @@ export default {
   .nav-logo {
     opacity: 0;
     @include column(10);
+      @include column-break($tablet, 6);
     padding-left: $space-lighter;
   }
   
