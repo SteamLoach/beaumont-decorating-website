@@ -7,12 +7,16 @@
     <responsive-nav-toggle :state="topNav.state"></responsive-nav-toggle>
    
     <div class="nav-link-wrapper"
-         :class="topNav.state">
-      <div v-for="link in topNav.navLinks"
-           :key="link.id"
-           @click="mobileNavClose"
-           class="nav-link">
-        <nuxt-link :to="link.route"> {{link.title}} </nuxt-link>
+         :class="topNav.state"
+         :style="{paddingTop: `${navHeight}px`}">
+      
+      <div class="nav-link-inner">
+        <div v-for="link in topNav.navLinks"
+             :key="link.id"
+             @click="mobileNavClose"
+             class="nav-link">
+          <nuxt-link :to="link.route"> {{link.title}} </nuxt-link>
+        </div>
       </div>  
     </div>
 
@@ -42,6 +46,7 @@ export default {
   data() {
     return {
       navBar: '',
+      navHeight: '',
     }
   },
   
@@ -73,6 +78,7 @@ export default {
     
     this.navBar = document.querySelector('.top-nav') ; 
     this.navStart = this.navBar.offsetTop ;
+    this.navHeight = this.navBar.offsetHeight ;
     window.addEventListener('scroll', this.stickyNav) ; 
     
   },
@@ -118,19 +124,26 @@ export default {
   }
   
   .nav-link-wrapper {
-    position: relative;
-    overflow: hidden;
-    @include column(20);
     position: absolute;
+    @include wrapper(center, center);
+      @include y-from($tablet, start);
+    @include column(24);
+    min-height: 100vh;
     right: -100%;
-    top: 100%;
-    margin-top: 1rem;
+    top: 0;
+    //margin-top: 1rem;
     text-align: center;
-    border-top-left-radius: $project-border-radius;
-    border-bottom-left-radius: $project-border-radius;
     transition-property: right;
     transition-duration: $project-transition-duration;
     transition-timing-function: linear;
+  }
+  
+  .nav-link-inner {
+    overflow: hidden;
+    @include column(22);
+    max-height: 100vh;
+    @include margin-from($tablet, top, $outer-space-medium) 
+    border-radius: $project-border-radius;
   }
   
   .navbar-swatch {
