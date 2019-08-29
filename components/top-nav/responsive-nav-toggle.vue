@@ -1,7 +1,7 @@
 <template>
   
     <div class="nav-toggle-wrapper"
-         @click="mobileNavToggle">
+         @click="responsiveNavToggle">
       <div class="nav-toggle"
            :class="state"></div>
     </div>
@@ -20,7 +20,7 @@ export default {
   
   methods: {
     ...mapMutations({
-      mobileNavToggle: 'menus/mobileNavToggle',
+      responsiveNavToggle: 'menus/responsiveNavToggle',
     })
   }
   
@@ -43,6 +43,7 @@ export default {
   }
 
   .nav-toggle-wrapper {
+    @include hidden-from($laptop);
     z-index: 15;
     overflow: visible;
     padding: 15px 10px 35px 10px;
@@ -72,29 +73,13 @@ export default {
     }
   }
   .nav-toggle.is-active { 
-    
-    background-color: $offset-font-color;
-    
     transform: translate(0px, 10px) rotate(-135deg);
     
     &:before {
-      background-color: $offset-font-color;
       transform: scale(0) translate(0px, -20px) rotate(-270deg);
     }
     &:after {
-      background-color: $offset-font-color;
       transform: translate(0px, -20px) rotate(270deg);
-    }
-    
-    &.is-sticky {
-      background-color: $brand-1;
-      &:before {
-        background-color: $brand-1;
-      }
-      &:after {
-        background-color: $brand-1;
-
-      }
     }
   }
 

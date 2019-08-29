@@ -8,11 +8,11 @@ export default {
   },
   
   
-  mobileNavToggle(state) {
+  responsiveNavToggle(state) {
     state.topNav.state['is-active'] = !state.topNav.state['is-active'] ; 
   },
   
-  mobileNavClose(state) {
+  responsiveNavClose(state) {
     state.topNav.state['is-active'] = false ; 
   },
   

@@ -2,8 +2,9 @@
 
   <div>
     
-    <img class="title-image" src="~/assets/beaumont_decorating_logo.png"/>
-    <button class="cta title-cta">Book a Quote</button>
+    <page-header :featureImage="Page.featureImage[0].url"
+                 :title="Page.pageTitle"
+                 :strapline="Page.pageStrapline"></page-header>
     <content-panels :panels="Page.contentPanels"></content-panels>
     
   </div>

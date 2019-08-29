@@ -13,6 +13,10 @@ body {
   background-color: $page-background;
 }
 
+//nav heights
+  $mobile-nav-height: 70px;
+  $tablet-nav-height: 90px;
+
 //CTAs
 
 @mixin centered-background() {

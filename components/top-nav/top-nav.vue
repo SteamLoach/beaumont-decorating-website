@@ -3,23 +3,29 @@
   <nav class="top-nav"
        :class="topNav.state">
     
-    <img class="nav-logo" src="~/assets/beaumont_decorating_logo.png"/>
+    <nuxt-link class="nav-home"
+               to="/">
+      <img class="nav-logo" 
+           src="~/assets/beaumont_decorating_logo.png"
+           @click="responsiveNavClose"/>
+    </nuxt-link>
+    
+    
     <responsive-nav-toggle :state="topNav.state"></responsive-nav-toggle>
+    <responsive-nav :state="topNav.state"
+                    :navLinks="topNav.navLinks"></responsive-nav>
+    
    
-    <div class="nav-link-wrapper"
-         :class="topNav.state"
-         :style="{paddingTop: `${navHeight}px`}">
-      
-      <div class="nav-link-inner">
+    <div class="nav-link-wrapper">
         <div v-for="link in topNav.navLinks"
              :key="link.id"
-             @click="mobileNavClose"
+             @click="responsiveNavClose"
              class="nav-link">
           <nuxt-link :to="link.route"> {{link.title}} </nuxt-link>
         </div>
-      </div>  
     </div>
-
+  
+    
   </nav>
 
 </template>
@@ -30,11 +36,13 @@
 
 import {mapMutations} from 'vuex';  
 import responsiveNavToggle from './responsive-nav-toggle.vue';
+import responsiveNav from './responsive-nav.vue';
   
 export default {
   
   components: {
     responsiveNavToggle,
+    responsiveNav
   },
   
   computed: {
@@ -46,7 +54,6 @@ export default {
   data() {
     return {
       navBar: '',
-      navHeight: '',
     }
   },
   
@@ -67,7 +74,7 @@ export default {
     },
     
     ...mapMutations({
-      mobileNavClose: 'menus/mobileNavClose',
+      responsiveNavClose: 'menus/responsiveNavClose',
       navSticky: 'menus/navSticky',
       navStatic: 'menus/navStatic'
     })
@@ -78,7 +85,6 @@ export default {
     
     this.navBar = document.querySelector('.top-nav') ; 
     this.navStart = this.navBar.offsetTop ;
-    this.navHeight = this.navBar.offsetHeight ;
     window.addEventListener('scroll', this.stickyNav) ; 
     
   },
@@ -88,22 +94,23 @@ export default {
 
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">  
+  
   .top-nav {
     z-index: 10;
     position: fixed;
     top: 0;
-    @include row(start, center);
-    @include y-pad($space-lighter);
-    padding-right: ($space-lighter);
+    @include row(between, center);
+    height: $mobile-nav-height;
+      @include height-break($tablet, $tablet-nav-height);
+    @include x-pad-until($laptop, $space-lighter);
     font-family: $secondary-font;
     color: $brand-1;
     transition-duration: $project-transition-duration;
     transition-property: box-shadow, background-color;
     transition-timing-function: linear;
     
-    &.is-sticky {
+    &.is-sticky, &.is-active, &:hover {
       background-color: rgba(230, 230, 232, 0.8); 
       @include down-shadow(light);
       
@@ -116,48 +123,28 @@ export default {
     }
   }
   
+  .nav-home {
+    z-index: 15;
+    height: 90%;
+    width: auto;
+  }
+  
   .nav-logo {
+    max-height: 100%;
+    width: auto;
     opacity: 0;
-    @include column(10);
-      @include column-break($tablet, 6);
-    padding-left: $space-lighter;
   }
   
   .nav-link-wrapper {
-    position: absolute;
+    @include hidden-until($laptop);
     @include wrapper(center, center);
-      @include y-from($tablet, start);
-    @include column(24);
-    min-height: 100vh;
-    right: -100%;
-    top: 0;
-    //margin-top: 1rem;
+    @include column(16);
     text-align: center;
-    transition-property: right;
-    transition-duration: $project-transition-duration;
-    transition-timing-function: linear;
   }
-  
-  .nav-link-inner {
-    overflow: hidden;
-    @include column(22);
-    max-height: 100vh;
-    @include margin-from($tablet, top, $outer-space-medium) 
-    border-radius: $project-border-radius;
-  }
-  
-  .navbar-swatch {
-    opacity: 0.4;
-    position: absolute;
-    max-height: 100%;
-    top: 0;
-    left: 0;
-  }
-  
+      
   .nav-link {
-    position: relative;
+    flex: 1;
     font-size: 1.2rem;
-    background-color: $page-background;
     
     a {
       width: 100%;
