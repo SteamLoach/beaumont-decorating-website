@@ -148,7 +148,12 @@ export default {
     
     a {
       width: 100%;
-      @include y-pad($space-medium);
+      line-height: 2.2;
+      
+      &.nuxt-link-exact-active {
+        @extend %active-nav-link;
+        background-size: 95% auto;
+      }
     }
     
   }

@@ -55,7 +55,7 @@ export default {
     text-align: center;
     @include centered-background();
     border-radius: 5px;
-    @include centered-shadow(medium);
+    //@include centered-shadow(medium);
   }
   
   .teaser-content {

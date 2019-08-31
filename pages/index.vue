@@ -34,13 +34,6 @@ export default {
 
 
 <style lang="scss">
-
-  .title-image {
-    @include column(24);
-    @include x-pad(.2rem);
-    padding-top: $outer-space-light;
-    margin-bottom: $outer-space-medium;
-  }
   
   .title-cta {
     display: block;

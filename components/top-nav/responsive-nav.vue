@@ -42,6 +42,7 @@ export default {
 <style lang="scss">
   
   .responsive-nav {
+    overflow-y: scroll;
     @include hidden-from($laptop);
     position: absolute;
     @include row(center, center);
@@ -59,7 +60,6 @@ export default {
   
   .responsive-nav-inner {
     overflow: hidden;
-    overflow-y: scroll;
     @include column(22);
     max-height: 100vh;
     @include margin-from($tablet, top, $outer-space-medium) 
@@ -69,12 +69,23 @@ export default {
   .responsive-nav-link {
     position: relative;
     font-size: 1.2rem;
+    
     background-color: $page-background;
     
     a {
+      position: relative;
       width: 100%;
-      @include y-pad($space-medium);
+      @include y-pad($space-medium);    
+      
+      
+      &.nuxt-link-exact-active {
+        @extend %active-nav-link;
+        background-size: auto 80%;
+      }
     }
+    
+
+
   }
   
   .responsive-nav.is-active {
