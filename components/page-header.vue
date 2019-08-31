@@ -8,7 +8,10 @@
       <div class="page-title-wrapper">
         <h1 class="page-title"> {{ title }} </h1>
         <p class="page-strapline"> {{ strapline }} </p>
+        <slot></slot>
       </div>
+      
+      
       
     </div>
   
@@ -53,7 +56,7 @@ export default {
   .page-title {
     @include column(24);
     @include x-pad($space-medium);
-    padding-bottom: $space-lighter;
+    padding-bottom: $space-medium;
     font-size: 2.2rem;
     color: $offset-font-color;
     font-weight: 800;
@@ -61,7 +64,8 @@ export default {
   }
   
   .page-strapline {
-    
+    width: 100%;
+    padding-bottom: $space-medium;
   }
 
 </style>

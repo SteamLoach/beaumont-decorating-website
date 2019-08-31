@@ -4,7 +4,10 @@
   
     <page-header :featureImage="Page.featureImage[0].url"
                  :title="Page.pageTitle"
-                 :strapline="Page.pageStrapline"></page-header>
+                 :strapline="Page.pageStrapline">
+  
+      <scroll-to-chevron :scrollTarget="'.page-feature-image'"></scroll-to-chevron>
+    </page-header>
     <content-panels :panels="Page.contentPanels"></content-panels>
   
   </div>

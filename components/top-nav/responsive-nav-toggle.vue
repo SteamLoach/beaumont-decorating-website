@@ -12,17 +12,13 @@
 
 <script>
   
-import {mapMutations} from 'vuex';
+import {navMutations} from './navMutations.js';  
   
 export default {
   
-  props:['state'],
+  mixins: [navMutations],
   
-  methods: {
-    ...mapMutations({
-      responsiveNavToggle: 'menus/responsiveNavToggle',
-    })
-  }
+  props:['state'],
   
 }
 

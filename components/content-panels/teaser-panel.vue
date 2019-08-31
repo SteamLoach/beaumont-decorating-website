@@ -9,7 +9,9 @@
       <div class="teaser-content">
         <h3 class="teaser-title"> {{ teaser.title }} </h3>
         <p class="teaser-text"> {{ teaser.text }} </p>
-        <button class="cta teaser-cta"> {{ teaser.button }} </button>
+        <nuxt-link class="cta teaser-cta"
+                   :to="teaser.route"> {{ teaser.button }} </nuxt-link>
+        
       </div>
     </div>
   
@@ -54,8 +56,8 @@ export default {
     margin-bottom: $outer-space-heavy;
     text-align: center;
     @include centered-background();
+    border: solid 1px $shade-darker;
     border-radius: 5px;
-    //@include centered-shadow(medium);
   }
   
   .teaser-content {
@@ -78,6 +80,11 @@ export default {
     
   .teaser-cta {
     margin-bottom: $space-light;
+    
+    a {
+      height: 100%;
+      width: 100%;
+    }
   }
      
   

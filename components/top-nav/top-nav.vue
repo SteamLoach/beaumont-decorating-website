@@ -34,11 +34,13 @@
 <script>
 
 
-import {mapMutations} from 'vuex';  
+import {navMutations} from './navMutations.js';  
 import responsiveNavToggle from './responsive-nav-toggle.vue';
 import responsiveNav from './responsive-nav.vue';
   
 export default {
+  
+  mixins: [navMutations],
   
   components: {
     responsiveNavToggle,
@@ -71,14 +73,7 @@ export default {
       else {
         this.navStatic();
       }
-    },
-    
-    ...mapMutations({
-      responsiveNavClose: 'menus/responsiveNavClose',
-      navSticky: 'menus/navSticky',
-      navStatic: 'menus/navStatic'
-    })
-    
+    },    
   },
   
   mounted() {

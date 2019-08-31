@@ -9,8 +9,13 @@
 
 <script>
   
+import topNav from '~/components/top-nav/top-nav.vue' ; 
   
 export default {
+  
+  components: {
+    topNav,
+  },
   
   computed: {
     overlayState: function() {

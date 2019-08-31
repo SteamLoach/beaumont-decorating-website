@@ -15,7 +15,7 @@ body {
 
 //Nav
 $mobile-nav-height: 70px;
-$tablet-nav-height: 90px;
+$tablet-nav-height: 75px;
 
 %active-nav-link {
   color: $offset-font-color;
@@ -34,7 +34,7 @@ $tablet-nav-height: 90px;
 
 .cta {
   @include x-pad($space-medium);
-  @include y-pad($space-light);
+  @include y-pad($space-lighter);
   color: $brand-1;
   border: solid 2px $brand-1;
   border-radius: 25px;

@@ -19,21 +19,14 @@
 
 <script>
 
-import {mapMutations} from 'vuex';
+import {navMutations} from './navMutations.js';  
   
 export default {
   
+  mixins: [navMutations],
+  
   props: ['state', 'navLinks'],
-  
-  methods: {
     
-    ...mapMutations({
-      responsiveNavClose: 'menus/responsiveNavClose'
-      
-    })
-    
-  }
-  
 }
   
 </script>
