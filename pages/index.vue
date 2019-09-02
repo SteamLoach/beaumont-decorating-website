@@ -43,7 +43,7 @@ export default {
   .title-cta {
     font-size: 1.2rem;
     color: $offset-font-color;
-    border-color: $offset-font-color;
+    border-color: $project-border-color;
     
     &:hover {
       border-color: $brand-1;

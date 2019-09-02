@@ -2,6 +2,7 @@ import Vue from 'vue' ;
 
 import pageHeader from '~/components/page-header.vue';
 import contentPanels from '~/components/content-panels.vue';
+import svgLoader from '~/components/svg-loader.vue';
 
 
 //misc
@@ -13,4 +14,5 @@ Vue.component('content-panels', contentPanels);
 
 
 //misc
-Vue.component('scroll-to-chevron', scrollToChevron)
+Vue.component('svg-loader', svgLoader) ; 
+Vue.component('scroll-to-chevron', scrollToChevron) ; 

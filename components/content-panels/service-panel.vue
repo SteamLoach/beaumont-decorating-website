@@ -3,7 +3,7 @@
   <article class="service-panel">
     
     <div class="service-panel-header">
-      <h3 class="service-panel-title"> {{content.title}} </h3>
+      <h2 class="service-panel-title"> {{content.title}} </h2>
       <p class="service-panel-intro"> {{content.intro}} </p>
     </div>
       
@@ -11,12 +11,12 @@
          :key="item.id"
          class="service-item">
       
-      <div class="service-image"
-           :style="makeBackground(item.image[0].url)"></div>
+      <svg-loader class="service-icon" :icon="item.icon"></svg-loader>
       
       <div class="service-content">
         <h3> {{item.title}} </h3>
         <p> {{item.text}} </p>
+        <nuxt-link class="cta" to="#"> Need a Quote? </nuxt-link>
       </div>
   
     </div>
@@ -47,60 +47,67 @@ export default {
 <style lang="scss">
   
   .service-panel {
-    @include row(center, center);
+    @include row(center, start);
+    padding-top: $outer-space-medium;
+      @include x-from($tablet, around);
+      //@include x-pad-from($tablet, 5%);
   }
   
   .service-panel-header {
+    @include wrapper(center, center);
     @include column(22);
     text-align: center;
-    margin-bottom: $outer-space-medium;
+    padding-bottom: $space-light;
+      @include pad-from($tablet, bottom, $space-medium);
+        @include pad-from($laptop, bottom, $space-heavier);
+    border-bottom: 1px solid $brand-1;
+    margin-bottom: $space-light;
+      @include margin-from ($tablet, bottom, $space-medium);
+        @include margin-from ($tablet, bottom, $space-heavier);
   }
   
   .service-panel-title {
     padding-bottom: $space-light;
   }
   
-  .service-item {
-    @include wrapper(center, center);
-      @include x-from(550px, start);
-        @include x-from($tablet, around);
-        @include y-from($tablet, start);
-          @include y-from($laptop, center);
-    @include column(22);
-      @include column-break($tablet, 23);
-        @include column-break($laptop, 20);
-          @include custom-break($desktop, 1248px);
-    margin-bottom: $outer-space-medium;
-    padding-top: $space-light;
-    border-top: 1px solid $brand-1;
+  .service-panel-intro {
+    @include custom-break($tablet, 760px);
   }
   
-  .service-image {
+  .service-item {
+    @include wrapper(center, center);
     @include column(22);
-      @include custom-break(550px, 375px);
-        @include custom-break($tablet, 315px);
-    height: 315px;
-      @include height-break($tablet, 350px);
-    @include x-margin-from($touch, $space-lighter);
-    @include y-margin-from($tablet, $space-light);
+      @include custom-break(500px, 475px);
+    @include y-pad($space-medium);
+    margin-bottom: $outer-space-medium;
+      @include margin-from($laptop, bottom, $outer-space-heavy);
+    border-radius: $project-border-radius;
+    background-image: linear-gradient(to bottom right, #eee, 40%, rgba(25, 118, 149, 0.2)) ;
+  }
+  
+  .service-icon {
+    width: 125px;
+    height: 125px;
     margin-bottom: $space-lighter;
-    @include centered-background();
-    @include centered-shadow(medium);
     
+    .interior-icon {
+
+    }
   }
   
   .service-content {
     
-    @include column-break($tablet, 12);
+    @include column(24);
+    text-align: center;
     
-    h3 {
-      padding-left: $space-lighter;
-    }
+    h3 {padding-bottom: $space-lighter;}
     
     p {
-      padding-left: $space-lighter;
+      padding-bottom: $space-light;
+      @include x-pad ($space-lighter);
+      @include x-pad-from($tablet, $space-light);
     }
-    
+  
   }
 
 </style>

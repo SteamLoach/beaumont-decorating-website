@@ -13,6 +13,8 @@ body {
   background-color: $page-background;
 }
 
+$project-max-content-width: 1024px;
+
 //Nav
 $mobile-nav-height: 70px;
 $tablet-nav-height: 75px;
@@ -47,4 +49,6 @@ $tablet-nav-height: 75px;
 
 //Theme
 $project-border-radius: 10px;
+$project-border-color: $shade-base;
+
 $project-transition-duration: 0.3s;

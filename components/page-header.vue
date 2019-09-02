@@ -39,7 +39,6 @@ export default {
   .page-feature-image {
     @include container(center, center);
     height: 100vh;
-    margin-bottom: $outer-space-medium;
     @include centered-background();
     @include down-shadow(light);
   }
@@ -50,7 +49,7 @@ export default {
     min-height: 100%;
     text-align: center;
     color: $offset-font-color;
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8), rgba(0,0,0,0));
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.8), rgba(0,0,0,0));
   }
   
   .page-title {

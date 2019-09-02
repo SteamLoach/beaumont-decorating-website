@@ -44,6 +44,7 @@ export default {
   
   .teaser-panel {
     @include row(center, center);
+    padding-top: $outer-space-medium;
   }
   
   .teaser-item {
@@ -56,8 +57,7 @@ export default {
     margin-bottom: $outer-space-heavy;
     text-align: center;
     @include centered-background();
-    border: solid 1px $shade-darker;
-    border-radius: 5px;
+    border-radius: $project-border-radius;
   }
   
   .teaser-content {
