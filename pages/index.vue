@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <main>
     
     <page-header :featureImage="Page.featureImage[0].url"
                  :title="Page.pageTitle"
@@ -12,7 +12,7 @@
 
     <content-panels :panels="Page.contentPanels"></content-panels>
     
-  </div>
+  </main>
 
 </template>
 
@@ -38,15 +38,16 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
   
   .title-cta {
+    @extend %cta;
     font-size: 1.2rem;
     color: $offset-font-color;
     border-color: $project-border-color;
     
     &:hover {
-      border-color: $brand-1;
+      border-color: $brand-2;
     }
   }
   

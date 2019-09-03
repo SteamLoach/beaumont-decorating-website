@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrapper">
+  <div  class="page-wrapper">
     <top-nav></top-nav>
     <div class="lightbox-overlay"
          :class="{'is-active': overlayState}"></div>
@@ -29,12 +29,30 @@ export default {
 
 
 <style lang="scss">
+   
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $brand-1;
+  }
 
-  .page-wrapper {
+  html {
+    background-color: $page-background;
+    font-family: $primary-font;
+    font-size: $font-size-root;
+    line-height: $line-height-root;
+    color: $default-font-color;
+  }
+  
+  body {
     position: relative;
     min-height: 100vh;
   }
-      
+    
   .lightbox-overlay {
     z-index: 5;
     position: absolute;

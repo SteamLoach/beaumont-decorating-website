@@ -26,7 +26,7 @@ export default {
 
 
 
-<style lang="scss" scoped>
+<style lang="scss">
   
   %burger-bar {
     background-color: $brand-1;

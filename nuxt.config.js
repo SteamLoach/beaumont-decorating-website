@@ -31,6 +31,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~assets/styles/css/reset.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -57,7 +58,7 @@ export default {
     previewApiKey: ''
   },
   styleResources: {
-    scss: ['assets/styles/main.scss']
+    scss: ['assets/styles/scss/main.scss']
   },
   /*
   ** Build configuration

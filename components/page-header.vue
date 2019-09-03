@@ -55,7 +55,7 @@ export default {
   .page-title {
     @include column(24);
     @include x-pad($space-medium);
-    padding-bottom: $space-medium;
+    padding-bottom: $space-lighter;
     font-size: 2.2rem;
     color: $offset-font-color;
     font-weight: 800;
@@ -64,7 +64,7 @@ export default {
   
   .page-strapline {
     width: 100%;
-    padding-bottom: $space-medium;
+    padding-bottom: $space-light;
   }
 
 </style>

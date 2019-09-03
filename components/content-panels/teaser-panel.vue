@@ -79,6 +79,7 @@ export default {
   }
     
   .teaser-cta {
+    @extend %cta;
     margin-bottom: $space-light;
     
     a {

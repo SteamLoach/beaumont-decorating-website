@@ -16,7 +16,7 @@
       <div class="service-content">
         <h3> {{item.title}} </h3>
         <p> {{item.text}} </p>
-        <nuxt-link class="cta" to="#"> Need a Quote? </nuxt-link>
+        <nuxt-link class="service-cta" to="#"> Need a Quote? </nuxt-link>
       </div>
   
     </div>
@@ -90,9 +90,7 @@ export default {
     height: 125px;
     margin-bottom: $space-lighter;
     
-    .interior-icon {
-
-    }
+    .interior-icon {fill: $brand-3};
   }
   
   .service-content {
@@ -106,6 +104,10 @@ export default {
       padding-bottom: $space-light;
       @include x-pad ($space-lighter);
       @include x-pad-from($tablet, $space-light);
+    }
+    
+    .service-cta {
+      @extend %cta;      
     }
   
   }

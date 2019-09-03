@@ -1,18 +1,4 @@
 //Page Defaults
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: $brand-1;
-}
-
-body {
-  background-color: $page-background;
-}
-
 $project-max-content-width: 1024px;
 
 //Nav
@@ -34,16 +20,16 @@ $tablet-nav-height: 75px;
   background-size: cover;
 }
 
-.cta {
+%cta {
   @include x-pad($space-medium);
   @include y-pad($space-lighter);
-  color: $brand-1;
-  border: solid 2px $brand-1;
+  color: $brand-3;
+  border: solid 2px $brand-3;
   border-radius: 25px;
     
   &:hover {
     color: $offset-font-color;
-    background-color: $brand-1;
+    background-color: $brand-3;
   }
 }
 
