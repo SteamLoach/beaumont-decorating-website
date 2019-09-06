@@ -6,9 +6,14 @@
          :key="teaser.id"
          :style="makeBackground(teaser.image[0].url)"
          class="teaser-item">
+      
       <div class="teaser-content">
-        <h3 class="teaser-title"> {{ teaser.title }} </h3>
+        <h2 class="teaser-title"> {{ teaser.title }} </h2>
+        
+        <svg-loader class="teaser-icon" :icon="teaser.icon"></svg-loader>
+        
         <p class="teaser-text"> {{ teaser.text }} </p>
+        
         <nuxt-link class="cta teaser-cta"
                    :to="teaser.route"> {{ teaser.button }} </nuxt-link>
         
@@ -61,15 +66,25 @@ export default {
   }
   
   .teaser-content {
+    @include wrapper(center, center);
     @include y-pad($space-medium);
     background-color: rgba(233, 233, 233, 0.6);
-    
   }
     
   .teaser-title {
+    line-height: 1.2;
     @include x-pad($space-lighter);
       @include x-pad-from($touch, $space-light);
     margin-bottom: $space-light;
+  }
+  
+  .teaser-icon {
+    margin-bottom: $space-lighter; 
+    width: 150px;
+    height: 150px;
+      .homepage-svg {
+        fill: $brand-1;
+      }
   }
     
   .teaser-text {

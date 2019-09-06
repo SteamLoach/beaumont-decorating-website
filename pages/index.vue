@@ -6,8 +6,8 @@
                  :title="Page.pageTitle"
                  :strapline="Page.pageStrapline"> 
   
-      <nuxt-link class="cta title-cta"
-                 to="#"> Book A Quote </nuxt-link>
+      <button class="cta title-cta"
+              @click="scrollToTarget('.page-feature-image')"> Book A Quote </button>
     </page-header>
 
     <content-panels :panels="Page.contentPanels"></content-panels>
@@ -22,10 +22,11 @@
 <script>
 
 import {metaData} from '~/mixins/metaData.js'; 
+import {scrollPage} from '~/mixins/scrollPage.js';
   
 export default {
   
-  mixins: [metaData],
+  mixins: [metaData, scrollPage],
      
   computed: {
     Page: function() {
@@ -47,7 +48,7 @@ export default {
     border-color: $project-border-color;
     
     &:hover {
-      border-color: $brand-2;
+      border-color: $brand-1;
     }
   }
   

@@ -23,13 +23,13 @@ $tablet-nav-height: 75px;
 %cta {
   @include x-pad($space-medium);
   @include y-pad($space-lighter);
-  color: $brand-2;
-  border: solid 2px $brand-2;
+  color: $brand-1;
+  border: solid 2px $brand-1;
   border-radius: 25px;
     
   &:hover {
     color: $offset-font-color;
-    background-color: $brand-2;
+    background-color: $brand-1;
   }
 }
 

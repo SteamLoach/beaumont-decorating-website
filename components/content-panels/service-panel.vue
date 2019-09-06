@@ -85,7 +85,7 @@ export default {
         fill: $brand-3;
       }
       .service-item {
-        background-image: linear-gradient(to bottom right, #eee, 40%, rgba(88, 125, 113, 0.2)) ;
+        background-image: linear-gradient(to bottom right, #eee, 40%, rgba(146, 20, 12, 0.2)) ;
       }
       .service-cta {
         color: $brand-3;

@@ -9,6 +9,10 @@
 
 <script>
 
+//Homepage
+import fencePosts from '~/components/svg-icons/fence-posts.vue';
+import livingRoom from '~/components/svg-icons/living-room.vue' ; 
+  
 //Interior
 import paintBrush from '~/components/svg-icons/paint-brush.vue';
 import paintBucket from '~/components/svg-icons/paint-bucket.vue';
@@ -33,6 +37,8 @@ export default {
   },
   
   components: {
+    fencePosts,
+    livingRoom,
     paintBrush,
     paintBucket,
     paintRoller,
