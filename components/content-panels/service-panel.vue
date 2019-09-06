@@ -1,6 +1,7 @@
 <template>
 
-  <article class="service-panel">
+  <article class="service-panel"
+           :class="classExtensions">
     
     <div class="service-panel-header">
       <h2 class="service-panel-title"> {{content.title}} </h2>
@@ -36,7 +37,17 @@ export default {
   
   props: ['content'],
   
-  mixins: [backgroundImage]
+  mixins: [backgroundImage],
+  
+  computed: {
+    classExtensions: function() {
+      let classObject = {} ; 
+      this.content.classExtensions.forEach(option => {
+        classObject[option] = true ; 
+      }) ; 
+      return classObject ; 
+    }
+  }
 }
 
 </script>
@@ -51,6 +62,40 @@ export default {
     padding-top: $outer-space-medium;
       @include x-from($tablet, around);
       //@include x-pad-from($tablet, 5%);
+    
+    &.interior-services {
+      .service-svg {
+        fill: $brand-2;
+      }
+      .service-item {
+        background-image: linear-gradient(to bottom right, #eee, 40%, rgba(25, 118, 149, 0.2)) ;
+      }
+      .service-cta {
+        color: $brand-2;
+        border-color: $brand-2;
+        &:hover {
+          color: $offset-font-color;
+          background-color: $brand-2;
+        }
+      }
+    }
+    
+    &.exterior-services {
+      .service-svg {
+        fill: $brand-3;
+      }
+      .service-item {
+        background-image: linear-gradient(to bottom right, #eee, 40%, rgba(88, 125, 113, 0.2)) ;
+      }
+      .service-cta {
+        color: $brand-3;
+        border-color: $brand-3;
+        &:hover {
+          color: $offset-font-color;
+          background-color: $brand-3;
+        }
+      }
+    }
   }
   
   .service-panel-header {
@@ -82,15 +127,12 @@ export default {
     margin-bottom: $outer-space-medium;
       @include margin-from($laptop, bottom, $outer-space-heavy);
     border-radius: $project-border-radius;
-    background-image: linear-gradient(to bottom right, #eee, 40%, rgba(25, 118, 149, 0.2)) ;
   }
   
   .service-icon {
     width: 125px;
     height: 125px;
     margin-bottom: $space-lighter;
-    
-    .interior-icon {fill: $brand-3};
   }
   
   .service-content {
