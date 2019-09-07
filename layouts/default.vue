@@ -38,7 +38,12 @@ export default {
   h5,
   h6 {
     color: $brand-1;
+    line-height: 1.2;
   }
+  
+  h1 {font-size: 2.2rem;}
+  h2 {font-size: 1.4rem;}
+  h3 {font-size: 1.2rem;}
 
   html {
     background-color: $page-background;

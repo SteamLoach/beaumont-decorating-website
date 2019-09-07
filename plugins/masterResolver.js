@@ -20,38 +20,52 @@ const masterResolver = (contentModel, counter) => {
   Object.keys(contentModel).forEach(key => {
         if (key !== 'system' && key !== 'elements') {
             
-            let type = contentModel.elements[key].type ;
-            let counter = 0 ;
+          let type = contentModel.elements[key].type ;
+          let counter = 0 ;
           
-            (type === 'text' || type === 'rich_text') ? resolve(key, contentModel[key].value):
-            
-            (type === 'asset') ? resolve(key, contentModel[key].assets.map(asset => {
+          if (type === 'text' || type === 'rich_text') {
+            resolve(key, contentModel[key].value) ; 
+          }
+          else if (type === 'asset') {
+            resolve(key, contentModel[key].assets.map(asset => {
               return {
                 url: asset.url,
                 name: asset.name,
                 description: asset.description,
                 id: (contentModel[key].assets.indexOf(asset) + 1)
               } 
-            })):
-            
-            (type === 'multiple_choice') ? resolve(key, contentModel[key].options.map(choice => {
-              return choice.name ; 
-            })):
-            
-            (type === 'modular_content') ? resolve(key, contentModel[key].map(obj => {
+            })) ; 
+          }
+          else if (type === 'multiple_choice') {
+            let optionsObject = {} ; 
+            contentModel[key].options.forEach(option => {
+              optionsObject[option.name] = true ;
+            }) ; 
+            resolve(key, optionsObject) ; 
+          }
+          else if (type === 'modular_content') {
+            resolve(key, contentModel[key].map(obj => {
                 counter++
                 return masterResolver(obj, counter) ;  
-            })):
-            
-            console.log(`no resolver for "${type}" model "${key}"`) ;     
+            })) ; 
+          }
+          else {
+            console.log(`no resolver for "${type}" model "${key}"`) ;
+          }        
         }
-    }) ; 
+    }) ;
+  
     return resolvedModel ; 
+
 } ;
+
+
+
 
 export default ({app}, inject) => {
   inject('masterResolver', masterResolver) ;
   inject('toCamel', toCamel) ;
 }
+
 
 

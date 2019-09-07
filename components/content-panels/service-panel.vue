@@ -1,7 +1,7 @@
 <template>
 
   <article class="service-panel"
-           :class="classExtensions">
+           :class="content.classExtensions">
     
     <div class="service-panel-header">
       <h2 class="service-panel-title"> {{content.title}} </h2>
@@ -12,12 +12,12 @@
          :key="item.id"
          class="service-item">
       
-      <svg-loader class="service-icon" :icon="item.icon"></svg-loader>
+      <svg-loader :icon="item.icon"></svg-loader>
       
       <div class="service-content">
         <h3> {{item.title}} </h3>
         <p> {{item.text}} </p>
-        <nuxt-link class="service-cta" to="#"> Need a Quote? </nuxt-link>
+        <nuxt-link class="service-cta" to="/#contact-form"> Need a Quote? </nuxt-link>
       </div>
   
     </div>
@@ -39,15 +39,6 @@ export default {
   
   mixins: [backgroundImage],
   
-  computed: {
-    classExtensions: function() {
-      let classObject = {} ; 
-      this.content.classExtensions.forEach(option => {
-        classObject[option] = true ; 
-      }) ; 
-      return classObject ; 
-    }
-  }
 }
 
 </script>
@@ -64,14 +55,13 @@ export default {
       //@include x-pad-from($tablet, 5%);
     
     &.interior-services {
-      .service-svg {
+      .service-icon {
         fill: $brand-2;
       }
       .service-item {
         background-image: linear-gradient(to bottom right, #eee, 40%, rgba(25, 118, 149, 0.2)) ;
       }
       .service-cta {
-        color: $brand-2;
         border-color: $brand-2;
         &:hover {
           color: $offset-font-color;
@@ -81,14 +71,13 @@ export default {
     }
     
     &.exterior-services {
-      .service-svg {
+      .service-icon {
         fill: $brand-3;
       }
       .service-item {
         background-image: linear-gradient(to bottom right, #eee, 40%, rgba(146, 20, 12, 0.2)) ;
       }
       .service-cta {
-        color: $brand-3;
         border-color: $brand-3;
         &:hover {
           color: $offset-font-color;
@@ -99,7 +88,6 @@ export default {
   }
   
   .service-panel-header {
-    @include wrapper(center, center);
     @include column(22);
     text-align: center;
     padding-bottom: $space-light;
@@ -120,7 +108,6 @@ export default {
   }
   
   .service-item {
-    @include wrapper(center, center);
     @include column(22);
       @include custom-break(500px, 475px);
     @include y-pad($space-medium);
@@ -132,7 +119,11 @@ export default {
   .service-icon {
     width: 125px;
     height: 125px;
+    margin:0 auto;
     margin-bottom: $space-lighter;
+    .icon-highlight {
+        fill: $brand-1;
+    }
   }
   
   .service-content {

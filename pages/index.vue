@@ -7,10 +7,12 @@
                  :strapline="Page.pageStrapline"> 
   
       <button class="cta title-cta"
-              @click="scrollToTarget('.page-feature-image')"> Book A Quote </button>
+              @click="scrollToTarget('.teaser-panel')"> Book A Quote </button>
     </page-header>
 
     <content-panels :panels="Page.contentPanels"></content-panels>
+    
+    <contact-form></contact-form>
     
   </main>
 
@@ -24,9 +26,15 @@
 import {metaData} from '~/mixins/metaData.js'; 
 import {scrollPage} from '~/mixins/scrollPage.js';
   
+import contactForm from '~/components/contact-form.vue';
+  
 export default {
   
   mixins: [metaData, scrollPage],
+  
+  components: {
+    contactForm,
+  },
      
   computed: {
     Page: function() {
@@ -51,6 +59,7 @@ export default {
       border-color: $brand-1;
     }
   }
+
   
 </style>
 

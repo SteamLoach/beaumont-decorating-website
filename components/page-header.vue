@@ -56,10 +56,8 @@ export default {
     @include column(24);
     @include x-pad($space-medium);
     padding-bottom: $space-lighter;
-    font-size: 2.2rem;
     color: $offset-font-color;
     font-weight: 800;
-    line-height: 1.2;
   }
   
   .page-strapline {

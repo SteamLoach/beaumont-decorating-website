@@ -8,14 +8,14 @@
          class="teaser-item">
       
       <div class="teaser-content">
-        <h2 class="teaser-title"> {{ teaser.title }} </h2>
         
-        <svg-loader class="teaser-icon" :icon="teaser.icon"></svg-loader>
+        <h2 class="teaser-title"> {{ teaser.title }} </h2>
         
         <p class="teaser-text"> {{ teaser.text }} </p>
         
         <nuxt-link class="cta teaser-cta"
                    :to="teaser.route"> {{ teaser.button }} </nuxt-link>
+        
         
       </div>
     </div>
@@ -49,7 +49,7 @@ export default {
   
   .teaser-panel {
     @include row(center, center);
-    padding-top: $outer-space-medium;
+    padding-top: $outer-space-heavy;
   }
   
   .teaser-item {
@@ -59,7 +59,7 @@ export default {
         @include custom-break($laptop, 725px);
           @include column-break($desktop, 8);
     @include x-margin-from($desktop, $outer-space-medium);
-    margin-bottom: $outer-space-heavy;
+    margin-bottom: $outer-space-light;
     text-align: center;
     @include centered-background();
     border-radius: $project-border-radius;
@@ -72,7 +72,6 @@ export default {
   }
     
   .teaser-title {
-    line-height: 1.2;
     @include x-pad($space-lighter);
       @include x-pad-from($touch, $space-light);
     margin-bottom: $space-light;

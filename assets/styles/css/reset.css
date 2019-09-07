@@ -55,6 +55,10 @@ textarea {
   width: 100%;
 }
 
+input[type="submit"] {
+  background-color: transparent;
+}
+
 /* More friendly border */
 input,
 textarea,
