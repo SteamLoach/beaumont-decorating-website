@@ -17,7 +17,8 @@
       <div class="service-content">
         <h3> {{item.title}} </h3>
         <p> {{item.text}} </p>
-        <nuxt-link class="service-cta" to="/#contact-form"> Need a Quote? </nuxt-link>
+        <button class="service-cta"
+                @click="scrollToTarget('.service-panel')"> Need a Quote? </button>
       </div>
   
     </div>
@@ -32,12 +33,13 @@
 <script>
 
 import {backgroundImage} from '~/mixins/backgroundImage.js';
+import {scrollPage} from '~/mixins/scrollPage.js';
   
 export default {
   
   props: ['content'],
   
-  mixins: [backgroundImage],
+  mixins: [backgroundImage, scrollPage],
   
 }
 
@@ -49,10 +51,14 @@ export default {
 <style lang="scss">
   
   .service-panel {
-    @include row(center, start);
+    
+    @include container(center, center);
+    @include column(24);
+      @include x-from($laptop, around);
+      @include y-from($laptop, start);
+    max-width: $project-max-content-width;
     padding-top: $outer-space-medium;
-      @include x-from($tablet, around);
-      //@include x-pad-from($tablet, 5%);
+
     
     &.interior-services {
       .service-icon {
@@ -89,7 +95,7 @@ export default {
   
   .service-panel-header {
     @include column(22);
-    text-align: center;
+      @include column-break($tablet, 18);
     padding-bottom: $space-light;
       @include pad-from($tablet, bottom, $space-medium);
         @include pad-from($laptop, bottom, $space-heavier);
@@ -97,6 +103,7 @@ export default {
     margin-bottom: $space-light;
       @include margin-from ($tablet, bottom, $space-medium);
         @include margin-from ($tablet, bottom, $space-heavier);
+    text-align: center;
   }
   
   .service-panel-title {
@@ -104,12 +111,13 @@ export default {
   }
   
   .service-panel-intro {
-    @include custom-break($tablet, 760px);
   }
   
   .service-item {
     @include column(22);
       @include custom-break(500px, 475px);
+        @include custom-break($tablet, 525px);
+          @include custom-break($laptop, 450px);
     @include y-pad($space-medium);
     margin-bottom: $outer-space-medium;
       @include margin-from($laptop, bottom, $outer-space-heavy);

@@ -1,5 +1,5 @@
 //Page Defaults
-$project-max-content-width: 1024px;
+$project-max-content-width: 1248px;
 
 //Nav
 $mobile-nav-height: 70px;
@@ -28,6 +28,7 @@ $tablet-nav-height: 75px;
   border-radius: 25px;
     
   &:hover {
+    cursor: pointer;
     color: $offset-font-color;
     background-color: $brand-1;
   }

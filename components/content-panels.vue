@@ -1,6 +1,6 @@
 <template>
 
-  <section>
+  <section class="content-panel">
     <component v-for="panel in panels"
                :is="panel.componentReference"
                :key="panel.id"
@@ -27,4 +27,12 @@ export default {
 }
 
 </script>
+
+<style lang="scss">
+
+  .content-panel {
+    @include row(center,center);
+  }
+
+</style>
 

@@ -12,7 +12,7 @@
 
     <content-panels :panels="Page.contentPanels"></content-panels>
     
-    <contact-form></contact-form>
+    <contact-form id="contact-form"></contact-form>
     
   </main>
 
@@ -26,15 +26,11 @@
 import {metaData} from '~/mixins/metaData.js'; 
 import {scrollPage} from '~/mixins/scrollPage.js';
   
-import contactForm from '~/components/contact-form.vue';
+
   
 export default {
   
   mixins: [metaData, scrollPage],
-  
-  components: {
-    contactForm,
-  },
      
   computed: {
     Page: function() {

@@ -1,77 +1,59 @@
 <template>
-    
-  <form class="contact-form"
-  action="https://docs.google.com/forms/d/e/1FAIpQLSd5QZzYFj22MJcl3ge0yaYGgBp7h6LD2I-Grfz4rMm0sh8etA/formResponse"
-        method="post" 
-        target="hidden_iframe"
-        v-on:submit="submitForm">
-    
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>  
-      
-    <h2>Get in Touch</h2>
-    
-    <label for="clientname">What's your name?</label>
-    <input v-model="formFields.clientName" type="text" id="clientname" name="entry.1089229558" placeholder="Your name..." required>
+  <section class="contact-form-outer">
+    <form class="contact-form-inner"
+    action="https://docs.google.com/forms/d/e/1FAIpQLSd5QZzYFj22MJcl3ge0yaYGgBp7h6LD2I-Grfz4rMm0sh8etA/formResponse"
+          method="post" 
+          target="hidden_iframe"
+          onsubmit="formIsSubmitted=true;">
 
-    <label for="clientnumber">What's your number?</label>
-    <input v-model="formFields.clientNumber" type="number" id="clientnumber" name="entry.1088802542" placeholder="Your contact number..." required>
+      <script type="text/javascript">var formIsSubmitted=false;</script>
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(formIsSubmitted) {window.location='/form-confirmation';}"></iframe>  
 
-    <label for="clientemail">What's your email?</label>
-    <input v-model="formFields.clientEmail" type="email" id="clientemail" name="entry.1481036572" placeholder="Your email address..." required>
+      <h2>Get in Touch</h2>
 
-    <label for="clientneeds">How can we help?</label>
-    <textarea v-model="formFields.clientNeeds" id="clientneeds" name="entry.1867573213"></textarea>
-    
-    <p class="form-feedback"
-        :class="{'is-submitted': formSubmitted}"> Thanks for your message! We'll be in touch ASAP </p>
+      <label for="clientname">What's your name?</label>
+      <input type="text" id="clientname" name="entry.1089229558" placeholder="Your name..." required>
 
-    <button @click="submitForm"
-            class="form-submit"
-            :class="{ 'is-submitted': formSubmitted }">Send</button>
+      <label for="clientnumber">What's your number?</label>
+      <input type="number" id="clientnumber" name="entry.1088802542" placeholder="Your contact number..." required>
 
-  </form>
+      <label for="clientemail">What's your email?</label>
+      <input type="email" id="clientemail" name="entry.1481036572" placeholder="Your email address..." required>
 
+      <label for="clientneeds">How can we help?</label>
+      <textarea id="clientneeds" name="entry.1867573213"></textarea>
+
+      <input type="submit"
+             value="Send"
+             class="form-submit"/>
+
+    </form>
+  </section>
 </template>
 
 
 <script>
 
 export default {
-  
-  data() {
-    return {
-      
-      formFields: {
-        clientName: "",
-        clientNumber: "",
-        clientEmail: "",
-        clientNeeds: "",
-      },
-      formSubmitted: false,
-    }
-  },
-  
-  methods: {
-    submitForm: function() {
-      
-      this.formSubmitted = true ;
-      document.querySelector('.contact-form').submit() ; 
-      setTimeout(function() {document.querySelector('.contact-form').reset();}, 1000) ; 
-      
-    }
-  }
-  
+    
 }
 
 </script>
 
 <style lang="scss">
   
-  .contact-form {
-    @include wrapper(center, center);
-    max-width: $project-max-content-width;
-    @include y-pad($outer-space-light);
+  .contact-form-outer {
+    @include row(center, center);
     background-image: linear-gradient(to bottom right, #eee, 75%, rgba(6, 9, 96, 0.2)) ;
+  }
+  
+  .contact-form-inner {
+    @include wrapper(center, center);
+    @include column(22);
+      @include column-break($tablet, 18);
+    max-width: 720px;
+    @include y-pad($outer-space-light);
+
     
     
     h2 {
@@ -96,13 +78,17 @@ export default {
     input:not([type="submit"]):valid {
       border-width: 2px;
       border-color: green;
-    }
-    
+    } 
   }
   
+  input[type="submit"]:invalid {
+    color: red;
+  }
+
   .form-submit {
     @extend %cta;
     @include column(20);
+    max-width: 250px;
     @include y-margin($space-light);
   }
   

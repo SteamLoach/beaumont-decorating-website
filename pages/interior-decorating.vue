@@ -9,7 +9,7 @@
       <scroll-to-chevron :scrollTarget="'.page-feature-image'"></scroll-to-chevron>
     </page-header>
     <content-panels :panels="Page.contentPanels"></content-panels>
-  
+  ` <contact-form></contact-form>
   </div>
 
 </template>

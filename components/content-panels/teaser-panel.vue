@@ -48,7 +48,9 @@ export default {
 <style lang="scss">
   
   .teaser-panel {
-    @include row(center, center);
+    @include container(center, center);
+    @include column(24); 
+    max-width: $project-max-content-width;
     padding-top: $outer-space-heavy;
   }
   
@@ -57,7 +59,7 @@ export default {
     @include column(22);
       @include column-break(625px, 18);
         @include custom-break($laptop, 725px);
-          @include column-break($desktop, 8);
+          @include column-break($desktop, 10);
     @include x-margin-from($desktop, $outer-space-medium);
     margin-bottom: $outer-space-light;
     text-align: center;
