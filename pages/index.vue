@@ -9,7 +9,7 @@
       <button class="cta title-cta"
               @click="scrollToTarget('.teaser-panel')"> Book A Quote </button>
     </page-header>
-
+    
     <content-panels :panels="Page.contentPanels"></content-panels>
     
     <contact-form id="contact-form"></contact-form>

@@ -7,25 +7,49 @@
           onsubmit="formIsSubmitted=true;">
 
       <script type="text/javascript">var formIsSubmitted=false;</script>
-      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(formIsSubmitted) {window.location='/form-confirmation';}"></iframe>  
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(formIsSubmitted) {window.location='/beaumont-decorating-website/form-confirmation';}"></iframe>  
 
       <h2>Get in Touch</h2>
 
       <label for="clientname">What's your name?</label>
-      <input type="text" id="clientname" name="entry.1089229558" placeholder="Your name..." required>
+      <input v-model="formValidation.name"
+             type="text"
+             id="clientname"
+             name="entry.1089229558"
+             placeholder="Your name..." required>
 
       <label for="clientnumber">What's your number?</label>
-      <input type="number" id="clientnumber" name="entry.1088802542" placeholder="Your contact number..." required>
+      <input v-model="formValidation.number"
+             type="number"
+             id="clientnumber"
+             name="entry.1088802542"
+             placeholder="Your contact number..." required>
 
       <label for="clientemail">What's your email?</label>
-      <input type="email" id="clientemail" name="entry.1481036572" placeholder="Your email address..." required>
-
+      <input type="email"
+             id="clientemail"
+             name="entry.1481036572"
+             placeholder="Your email address..."
+             >
+      
+      <label class="honeypot" for="paranoidandroid" style="display: none;">I see you</label>
+      <input v-model="formValidation.honeypot"
+             class="honeypot"
+             type="text"
+             id="paranoidandroid"
+             name="paranoidandroid"
+             placeholder="sneaky sneaky"
+             style="display: none;"/>
+      
       <label for="clientneeds">How can we help?</label>
-      <textarea id="clientneeds" name="entry.1867573213"></textarea>
+      <textarea id="clientneeds"
+                name="entry.1867573213"></textarea>
 
       <input type="submit"
              value="Send"
-             class="form-submit"/>
+             class="form-submit"
+             :class="{ 'can-submit': canSubmit }"
+             :disabled="!canSubmit"/>
 
     </form>
   </section>
@@ -35,16 +59,39 @@
 <script>
 
 export default {
-    
+  
+  data() {
+    return {
+      formValidation: {
+        name: '',
+        number: '',
+        honeypot: '',
+      }
+    }
+  },
+  
+  computed: {
+    canSubmit: function() {
+      if (this.formValidation.name !== '' && this.formValidation.number !== '' && this.formValidation.honeypot === '') {
+        return true ; 
+      } else {
+        return false ;
+      }
+    }
+  }
+  
 }
 
 </script>
 
 <style lang="scss">
   
+  .honeypot {
+    display: none !important;
+  }
+  
   .contact-form-outer {
     @include row(center, center);
-    background-image: linear-gradient(to bottom right, #eee, 75%, rgba(6, 9, 96, 0.2)) ;
   }
   
   .contact-form-inner {
@@ -74,15 +121,6 @@ export default {
       border-color: $brand-1;
       border-radius: $project-border-radius;
     }
-    
-    input:not([type="submit"]):valid {
-      border-width: 2px;
-      border-color: green;
-    } 
-  }
-  
-  input[type="submit"]:invalid {
-    color: red;
   }
 
   .form-submit {
@@ -90,19 +128,26 @@ export default {
     @include column(20);
     max-width: 250px;
     @include y-margin($space-light);
-  }
-  
-  .form-feedback {
-    overflow: hidden;
-    @include column(22);
-    height: 0px;
-    color: green;
-    text-align: center;
+    color: $shade-base;
+    border-color: $shade-base;
     
-    &.is-submitted {
-      height: auto;
+    &:hover {
+      color: $shade-base;
+      background-color: transparent;
+      cursor: not-allowed;
+    }
+    
+    &.can-submit {
+      @extend %cta;
+      
+      &:hover {
+        cursor: pointer;
+        color: $offset-font-color;
+        background-color: $brand-1;
+      }
     }
   }
+  
   
 
 </style>
