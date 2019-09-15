@@ -1,10 +1,21 @@
+////VARIABLES
+
 //Page Defaults
-$project-max-content-width: 1248px;
+$project-max-content-width: 1140px;
 
 //Nav
 $mobile-nav-height: 70px;
 $tablet-nav-height: 75px;
 
+//Theme
+$project-border-radius: 10px;
+$project-border-color: $shade-base;
+
+$project-transition-duration: 0.3s;
+
+
+
+////MIXINS & CLASS DEFAULTS
 %active-nav-link {
   color: $offset-font-color;
   background-image: url('~assets/navbar_swatch.png');
@@ -34,8 +45,4 @@ $tablet-nav-height: 75px;
   }
 }
 
-//Theme
-$project-border-radius: 10px;
-$project-border-color: $shade-base;
 
-$project-transition-duration: 0.3s;

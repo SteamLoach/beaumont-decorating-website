@@ -1,29 +1,18 @@
 <template>
 
-  <article class="service-panel"
+  <section class="service-panel"
            :class="content.classExtensions">
+    <div class="service-panel-inner">
     
-    <div class="service-panel-header">
-      <h2 class="service-panel-title"> {{content.title}} </h2>
-      <p class="service-panel-intro"> {{content.intro}} </p>
-    </div>
-      
-    <div v-for="item in content.serviceItems"
-         :key="item.id"
-         class="service-item">
-      
-      <svg-loader :icon="item.icon"></svg-loader>
-      
-      <div class="service-content">
-        <h3> {{item.title}} </h3>
+      <div v-for="item in content.serviceItems"
+           class="service-item">
+        <svg-loader :icon="item.icon"></svg-loader>
+        <h3><span>{{item.title}}</span></h3>
         <p> {{item.text}} </p>
-        <button class="service-cta"
-                @click="scrollToTarget('.service-panel')"> Need a Quote? </button>
       </div>
-  
+    
     </div>
-  
-  </article>
+  </section>
 
 </template>
 
@@ -31,15 +20,10 @@
 
 
 <script>
-
-import {backgroundImage} from '~/mixins/backgroundImage.js';
-import {scrollPage} from '~/mixins/scrollPage.js';
   
 export default {
   
   props: ['content'],
-  
-  mixins: [backgroundImage, scrollPage],
   
 }
 
@@ -51,106 +35,83 @@ export default {
 <style lang="scss">
   
   .service-panel {
+    @include row(center, center);
+    background-color: $brand-shade;
     
-    @include container(center, center);
-    @include column(24);
-      @include x-from($laptop, around);
-      @include y-from($laptop, start);
+    .service-icon {
+      width: 100px;
+      height: 100px;
+      fill: $brand-1;
+      .icon-highlight {
+        fill: $brand-accent;
+      }
+    }    
+  }
+  
+  .service-panel-inner {
+    @include container(around, start);
+      @include align-c(stretch);
     max-width: $project-max-content-width;
-    padding-top: $outer-space-medium;
-
-    
-    &.interior-services {
-      .service-icon {
-        fill: $brand-2;
-      }
-      .service-item {
-        background-image: linear-gradient(to bottom right, #eee, 40%, rgba(25, 118, 149, 0.2)) ;
-      }
-      .service-cta {
-        border-color: $brand-2;
-        &:hover {
-          color: $offset-font-color;
-          background-color: $brand-2;
-        }
-      }
-    }
-    
-    &.exterior-services {
-      .service-icon {
-        fill: $brand-3;
-      }
-      .service-item {
-        background-image: linear-gradient(to bottom right, #eee, 40%, rgba(146, 20, 12, 0.2)) ;
-      }
-      .service-cta {
-        border-color: $brand-3;
-        &:hover {
-          color: $offset-font-color;
-          background-color: $brand-3;
-        }
-      }
-    }
-  }
-  
-  .service-panel-header {
-    @include column(22);
-      @include column-break($tablet, 18);
-    padding-bottom: $space-light;
-      @include pad-from($tablet, bottom, $space-medium);
-        @include pad-from($laptop, bottom, $space-heavier);
-    border-bottom: 1px solid $brand-1;
-    margin-bottom: $space-light;
-      @include margin-from ($tablet, bottom, $space-medium);
-        @include margin-from ($tablet, bottom, $space-heavier);
-    text-align: center;
-  }
-  
-  .service-panel-title {
-    padding-bottom: $space-light;
-  }
-  
-  .service-panel-intro {
+    @include y-pad($outer-space-heavy);
+      @include x-pad-from($tablet, $space-heavy);
   }
   
   .service-item {
     @include column(22);
-      @include custom-break(500px, 475px);
-        @include custom-break($tablet, 525px);
-          @include custom-break($laptop, 450px);
-    @include y-pad($space-medium);
-    margin-bottom: $outer-space-medium;
-      @include margin-from($laptop, bottom, $outer-space-heavy);
+      @include column-break($tablet, 11);
+        @include column-break($laptop, 7);
+    margin-bottom: $outer-space-light;
+      @include margin-from($tablet, bottom, $outer-space-heavy);
+    padding: $space-heavy;
+    background-color: $page-background;
+    font-size: 0.8rem;
+    transition-property: all;
+    transition-duration: $project-transition-duration;
+    transition-timing-function: ease-in-out;
+    
+    ///Pull this out to the project partial as 'under-shadow' or something
+    box-shadow: 0 5px 20px -5px $shade-darker; 
+    
     border-radius: $project-border-radius;
-  }
-  
-  .service-icon {
-    width: 125px;
-    height: 125px;
-    margin:0 auto;
-    margin-bottom: $space-lighter;
-    .icon-highlight {
-        fill: $brand-1;
-    }
-  }
-  
-  .service-content {
     
-    @include column(24);
-    text-align: center;
     
-    h3 {padding-bottom: $space-lighter;}
-    
-    p {
+    h3, p {
       padding-bottom: $space-light;
-      @include x-pad ($space-lighter);
-      @include x-pad-from($tablet, $space-light);
     }
     
-    .service-cta {
-      @extend %cta;      
+    h3 {
+      padding-top: $space-light;
+      
+      span {
+        display: inline-block;
+        position: relative;
+        padding-bottom: $space-lighter;
+      
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background-color: $shade-light;
+          height: 5px;
+        }
+      }
     }
-  
+    
+    &:hover {
+      background-color: $brand-1;
+      h3 {
+        color: $offset-font-color;
+        span:after {
+          background-color: $brand-accent;
+        }
+      }
+      p {color: $shade-dark;}
+      .service-icon {fill: $offset-font-color;}
+    }
+    
+    
   }
 
 </style>

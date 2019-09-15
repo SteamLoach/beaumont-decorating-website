@@ -40,7 +40,6 @@ export default {
     @include container(center, center);
     height: 100vh;
     @include centered-background();
-    @include down-shadow(light);
   }
   
   .page-title-wrapper {

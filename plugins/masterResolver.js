@@ -9,14 +9,17 @@ const toCamel = (s) => {
 
 const masterResolver = (contentModel, counter) => {
   
+  //Target for resolved content
   let resolvedModel = {} ;
-    
+  
+  //Helper function to store and extend resolved content
   const resolve = (key, content) => {
         resolvedModel[toCamel(key)] = content ;
         resolvedModel.componentReference = toCamel(contentModel.system.type) ;
         (counter > 0) ? resolvedModel.id = counter : '' ; 
   } ; 
-    
+  
+  //Function body
   Object.keys(contentModel).forEach(key => {
         if (key !== 'system' && key !== 'elements') {
             

@@ -13,6 +13,11 @@
 import fencePosts from '~/components/svg-icons/fence-posts.vue';
 import livingRoom from '~/components/svg-icons/living-room.vue' ; 
   
+//Contact 
+import phoneIcon from '~/components/svg-icons/phone-icon.vue';
+import locationIcon from '~/components/svg-icons/location-icon.vue';
+import facebookIcon from '~/components/svg-icons/facebook-icon.vue';
+  
 //Interior
 import paintBrush from '~/components/svg-icons/paint-brush.vue';
 import paintBucket from '~/components/svg-icons/paint-bucket.vue';
@@ -47,7 +52,10 @@ export default {
     faciaSofits,
     garageDoor,
     exteriorRender,
-    woodenWindows
+    woodenWindows,
+    phoneIcon,
+    facebookIcon,
+    locationIcon
   }
   
 }

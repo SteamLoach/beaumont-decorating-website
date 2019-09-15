@@ -37,7 +37,7 @@ export default {
   h4,
   h5,
   h6 {
-    color: $brand-1;
+    color: $shade-darkest;
     line-height: 1.2;
   }
   

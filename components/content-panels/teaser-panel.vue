@@ -4,19 +4,20 @@
   
     <div v-for="teaser in content.teaserItems"
          :key="teaser.id"
-         :style="makeBackground(teaser.image[0].url)"
-         class="teaser-item">
+         class="teaser-item"
+         :class="{ 'is-reversed': teaser.id % 2 == 0}">
       
-      <div class="teaser-content">
-        
-        <h2 class="teaser-title"> {{ teaser.title }} </h2>
-        
-        <p class="teaser-text"> {{ teaser.text }} </p>
-        
-        <nuxt-link class="cta teaser-cta"
-                   :to="teaser.route"> {{ teaser.button }} </nuxt-link>
-        
-        
+      <div class="teaser-inner-right">
+        <svg-loader :icon="teaser.icon"></svg-loader>
+      </div>
+      
+      <div class="teaser-inner-left">
+        <div class="content"> 
+          <h2 class="title"> {{ teaser.title }} </h2>
+          <p class="text"> {{ teaser.text }} </p>
+          <nuxt-link class="cta teaser-cta"
+                     :to="teaser.route"> {{ teaser.button }} </nuxt-link>
+        </div>
       </div>
     </div>
   
@@ -48,61 +49,55 @@ export default {
 <style lang="scss">
   
   .teaser-panel {
-    @include container(center, center);
-    @include column(24); 
-    max-width: $project-max-content-width;
-    padding-top: $outer-space-heavy;
+    @include row(center, stretch);
+    min-height: 100vh;
+    margin-bottom: $outer-space-heavy;
   }
   
   .teaser-item {
-    overflow: hidden;
-    @include column(22);
-      @include column-break(625px, 18);
-        @include custom-break($laptop, 725px);
-          @include column-break($desktop, 10);
-    @include x-margin-from($desktop, $outer-space-medium);
-    margin-bottom: $outer-space-light;
-    text-align: center;
-    @include centered-background();
-    border-radius: $project-border-radius;
-  }
-  
-  .teaser-content {
-    @include wrapper(center, center);
-    @include y-pad($space-medium);
-    background-color: rgba(233, 233, 233, 0.6);
-  }
+    @include container(start, stretch);
+    @include column(18);
+    &.is-reversed {
+      flex-direction: row-reverse;
+    }
     
-  .teaser-title {
-    @include x-pad($space-lighter);
-      @include x-pad-from($touch, $space-light);
-    margin-bottom: $space-light;
-  }
-  
-  .teaser-icon {
-    margin-bottom: $space-lighter; 
-    width: 150px;
-    height: 150px;
-      .homepage-svg {
-        fill: $brand-1;
-      }
-  }
-    
-  .teaser-text {
-    margin-bottom: $space-light;
-    @include x-pad($space-light);
-      @include x-pad-from($touch, $space-medium)
-  }
-    
-  .teaser-cta {
-    @extend %cta;
-    margin-bottom: $space-light;
-    
-    a {
-      height: 100%;
-      width: 100%;
+    .homepage-icon {
+      width: 275px;
+      height: 275px;
+      fill: $brand-1;
     }
   }
+  
+  .teaser-inner-left {
+    @include wrapper(center, center);
+    @include column(10);
+    text-align: center;
+    
+    .content {
+      @include column(18);
+    }
+    
+    .title, .text {
+      padding-bottom: $space-light;
+    }
+    
+    .teaser-cta {
+      @extend %cta;
+      margin-bottom: $space-light;
+    
+      a {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  
+  .teaser-inner-right {
+    @include wrapper(center, center);
+    @include column(4);
+    @include centered-background();
+  }
+        
      
   
 

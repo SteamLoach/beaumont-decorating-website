@@ -1,5 +1,9 @@
 <template>
+
   <section class="contact-form-outer">
+    
+    <h2>Get in Touch</h2>
+    
     <form class="contact-form-inner"
     action="https://docs.google.com/forms/d/e/1FAIpQLSd5QZzYFj22MJcl3ge0yaYGgBp7h6LD2I-Grfz4rMm0sh8etA/formResponse"
           method="post" 
@@ -8,8 +12,6 @@
 
       <script type="text/javascript">var formIsSubmitted=false;</script>
       <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(formIsSubmitted) {window.location='/beaumont-decorating-website/form-confirmation';}"></iframe>  
-
-      <h2>Get in Touch</h2>
 
       <label for="clientname">What's your name?</label>
       <input v-model="formValidation.name"
@@ -52,7 +54,33 @@
              :disabled="!canSubmit"/>
 
     </form>
+    
+    <article class="secondary-contacts">
+    
+      <div class="contact-method">
+        <svg-loader :icon="'phone-icon'"></svg-loader>
+        <p>07972 797 897</p>
+      </div>
+      
+      <div class="contact-method">
+        <svg-loader :icon="'facebook-icon'"></svg-loader>
+        <p>Find Us On Facebook</p>
+      </div>
+      
+      <div class="contact-method">
+        <svg-loader :icon="'location-icon'"></svg-loader>
+        <p>10 Benis Drive
+          <br>
+          Newbold
+          <br>
+          Chesterfield
+        </p>
+      </div>
+  
+    </article>
+    
   </section>
+
 </template>
 
 
@@ -91,23 +119,43 @@ export default {
   }
   
   .contact-form-outer {
-    @include row(center, center);
+    @include row(center, start);
+    
+    h2 {
+      width: 100%;
+      text-align: center;
+      padding-bottom: $space-medium;
+    }
+  }
+  
+  .secondary-contacts {
+    @include column(10);
+    padding-top: $space-light;
+    
+  }
+  
+  .contact-method {
+    @include wrapper(start, start);
+    @include column(24);
+    @include y-pad($space-lighter);
+    
+    .contact-icon {
+      height: 75px;
+      width: 75px;
+      fill: $brand-1;
+      padding-right: ($space-light);
+    }
+    
+    p {
+      font-size: 1.4rem;
+    }
   }
   
   .contact-form-inner {
     @include wrapper(center, center);
-    @include column(22);
-      @include column-break($tablet, 18);
+    @include column(10);
     max-width: 720px;
-    @include y-pad($outer-space-light);
-
-    
-    
-    h2 {
-      @include column(22);
-      padding-bottom: $space-light;
-    }
-    
+  
     label {
       @include column(22);
       padding-bottom: $space-lighter;

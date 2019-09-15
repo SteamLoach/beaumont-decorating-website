@@ -6,7 +6,7 @@
     <nuxt-link class="nav-home"
                to="/">
       <img class="nav-logo" 
-           src="~/assets/beaumont_decorating_logo.png"
+           src=""
            @click="responsiveNavClose"/>
     </nuxt-link>
     
@@ -106,7 +106,7 @@ export default {
     transition-timing-function: linear;
     
     &.is-sticky, &.is-active, &:hover {
-      background-color: rgba(230, 230, 232, 0.8); 
+      background-color: rgba(230, 230, 232, 0.6); 
       @include down-shadow(light);
       
       .nav-logo {

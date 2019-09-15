@@ -19,8 +19,8 @@ export const actions = {
     await dispatch('cms/getContentByModel', {
       model: 'page_template',
       mutation: 'cms/resolveToStore',
-      module: 'cms'
-    }) ; 
+      module: 'cms',
+    }) ;     
   },
 }
 

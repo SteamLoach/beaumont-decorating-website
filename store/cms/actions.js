@@ -41,20 +41,28 @@ export default {
             }) ; 
   },
   
-  getContentByModel (context, options) {
+  getContentByModel (context, {splitItems = true, model = '', mutation = '', module = ''} = {}) {
     return this.$deliveryClient
       .items()
-        .type(options.model)
+        .type(model)
           .depthParameter(6)
             .getPromise()
               .then(response => {
-                response.items.forEach(item => {
-                context.commit(options.mutation, {
-                  output: item,
-                  target: this.$toCamel(item.system.codename)
-                }, {root: true}) ; 
-              }) ; 
-            })
-  }
-  
+                if (splitItems) {
+                  response.items.forEach(item => {
+                    context.commit(mutation, {
+                      output: item,
+                      target: this.$toCamel(item.system.codename)
+                    }, {root: true}) ; 
+                  }) ;
+                } else {
+                    context.commit(mutation, {
+                      output: response.items,
+                      target: this.$toCamel(`${model}s`),
+                      asArray: true
+                    }, {root: true}) ;
+                }
+              });
+  },
 }
+  
