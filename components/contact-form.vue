@@ -1,8 +1,11 @@
-<template>
+<!----
 
-  <section class="contact-form-outer">
-    
-    <h2>Get in Touch</h2>
+Needs to be the contact form alone, with a couple of class modifiers depending on where it's located (homepage/contact page etc)
+
+---->
+
+
+<template>
     
     <form class="contact-form-inner"
     action="https://docs.google.com/forms/d/e/1FAIpQLSd5QZzYFj22MJcl3ge0yaYGgBp7h6LD2I-Grfz4rMm0sh8etA/formResponse"
@@ -12,7 +15,9 @@
 
       <script type="text/javascript">var formIsSubmitted=false;</script>
       <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(formIsSubmitted) {window.location='/beaumont-decorating-website/form-confirmation';}"></iframe>  
-
+      
+      <h4>Get in touch for a free quotation</h4>
+      
       <label for="clientname">What's your name?</label>
       <input v-model="formValidation.name"
              type="text"
@@ -55,6 +60,7 @@
 
     </form>
     
+    <!---
     <article class="secondary-contacts">
     
       <div class="contact-method">
@@ -78,8 +84,7 @@
       </div>
   
     </article>
-    
-  </section>
+    --->
 
 </template>
 
@@ -118,44 +123,26 @@ export default {
     display: none !important;
   }
   
-  .contact-form-outer {
-    @include row(center, start);
+  .contact-form-inner {
+    @include wrapper(center, center);
+    @include absolute-from($laptop);
+      top: -75%;
     
-    h2 {
+    @include column(24);
+    padding: $space-heavy;
+    max-width: 720px;
+    background-color: $page-background;
+    border-radius: $project-border-radius;
+    @include under-shadow();
+    
+    h4 {
       width: 100%;
       text-align: center;
       padding-bottom: $space-medium;
     }
-  }
-  
-  .secondary-contacts {
-    @include column(10);
-    padding-top: $space-light;
     
-  }
-  
-  .contact-method {
-    @include wrapper(start, start);
-    @include column(24);
-    @include y-pad($space-lighter);
+    label {display: none;}
     
-    .contact-icon {
-      height: 75px;
-      width: 75px;
-      fill: $brand-1;
-      padding-right: ($space-light);
-    }
-    
-    p {
-      font-size: 1.4rem;
-    }
-  }
-  
-  .contact-form-inner {
-    @include wrapper(center, center);
-    @include column(10);
-    max-width: 720px;
-  
     label {
       @include column(22);
       padding-bottom: $space-lighter;
@@ -166,6 +153,7 @@ export default {
       @include column(22);
       padding: $space-lighter;
       margin-bottom: $space-light;
+      background-color: $shade-light;
       border-color: $brand-1;
       border-radius: $project-border-radius;
     }

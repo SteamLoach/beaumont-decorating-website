@@ -5,14 +5,23 @@
     <page-header :featureImage="Page.featureImage[0].url"
                  :title="Page.pageTitle"
                  :strapline="Page.pageStrapline"> 
-  
-      <button class="cta title-cta"
-              @click="scrollToTarget('.teaser-panel')"> Book A Quote </button>
     </page-header>
+    
+    <section class="homepage-intro">
+      <div class="homepage-intro-inner">
+        <div class="content-left">
+          <h2>If you have a project in mind, get a quotation</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim maiores mollitia qui quam labore hic asperiores provident maxime earum eum.</p>
+        </div>
+        <div class="content-right">
+          <contact-form></contact-form>
+        </div>
+      </div>
+    </section>
     
     <content-panels :panels="Page.contentPanels"></content-panels>
     
-    <contact-form id="contact-form"></contact-form>
+    <div class="test"></div>
     
   </main>
 
@@ -45,17 +54,46 @@ export default {
 
 <style lang="scss" scoped>
   
-  .title-cta {
-    @extend %cta;
-    font-size: 1.2rem;
-    color: $offset-font-color;
-    border-color: $project-border-color;
+  .test {
+    width: 100%;
+    height: 1000px;
+  }
+  
+  .homepage-intro {
+    @include row(center, center);
+  }
+  
+  .homepage-intro-inner {
+    z-index: 1;
+    @include container(center, center);
+    @include column(24);
+      @include column-break(550px, 20);
+        @include column-break($tablet, 24);
+        @include x-from($tablet, around);
+          @include y-pad-from($laptop, $space-heaviest);
+          @include y-from($laptop, stretch);
+            @include x-from($desktop, between);
+    max-width: $project-max-content-width;
+    @include y-pad($space-medium);
     
-    &:hover {
-      border-color: $brand-1;
+    .content-left, .content-right {
+      @include column(22);  
+    }
+    
+    .content-left {
+      @include column-break($tablet, 10);
+      text-align: center;
+        @include text-align-from($tablet, left);
+      h2, p {padding-bottom: $space-light;}
+    }
+    
+    .content-right {
+      @include column-break($tablet, 12);
+      position: relative;
     }
   }
-
+  
+  
   
 </style>
 

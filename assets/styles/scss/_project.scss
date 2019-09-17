@@ -45,4 +45,13 @@ $project-transition-duration: 0.3s;
   }
 }
 
+//Theme
+@mixin under-shadow() {
+  box-shadow: 0 5px 20px -5px $shade-darker;
+}
 
+@mixin project-transition($prop) {
+  transition-property: $prop;
+  transition-duration: $project-transition-duration;
+  transition-timing-function: ease-in-out;
+}

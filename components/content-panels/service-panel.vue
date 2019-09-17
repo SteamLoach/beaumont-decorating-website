@@ -54,23 +54,23 @@ export default {
     max-width: $project-max-content-width;
     @include y-pad($outer-space-heavy);
       @include x-pad-from($tablet, $space-heavy);
+        @include x-pad-from($desktop, 0px);
   }
   
   .service-item {
     @include column(22);
       @include column-break($tablet, 11);
-        @include column-break($laptop, 7);
+        @include column-break($laptop, 9);
+          @include column-break($desktop, 7);
     margin-bottom: $outer-space-light;
       @include margin-from($tablet, bottom, $outer-space-heavy);
     padding: $space-heavy;
+      
     background-color: $page-background;
     font-size: 0.8rem;
-    transition-property: all;
-    transition-duration: $project-transition-duration;
-    transition-timing-function: ease-in-out;
-    
-    ///Pull this out to the project partial as 'under-shadow' or something
-    box-shadow: 0 5px 20px -5px $shade-darker; 
+
+    @include project-transition(all);
+    @include under-shadow(); 
     
     border-radius: $project-border-radius;
     
