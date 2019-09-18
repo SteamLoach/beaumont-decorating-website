@@ -1,6 +1,6 @@
 <template>
 
-  <section class="content-panel">
+  <section class="content-panels">
     <component v-for="panel in panels"
                :is="panel.componentReference"
                :key="panel.id"
@@ -12,8 +12,11 @@
 
 <script>
 
+  
+  
 import teaserPanel from '~/components/content-panels/teaser-panel.vue';
 import servicePanel from '~/components/content-panels/service-panel.vue';
+import reviewPanel from '~/components/content-panels/review-panel.vue' ; 
   
 export default {
   
@@ -21,7 +24,8 @@ export default {
   
   components: {
     teaserPanel,
-    servicePanel
+    servicePanel,
+    reviewPanel
   }
   
 }
@@ -30,7 +34,7 @@ export default {
 
 <style lang="scss">
 
-  .content-panel {
+  .content-panels {
     @include row(center,center);
   }
 

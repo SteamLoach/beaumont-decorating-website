@@ -7,7 +7,7 @@ Needs to be the contact form alone, with a couple of class modifiers depending o
 
 <template>
     
-    <form class="contact-form-inner"
+    <form class="contact-form"
     action="https://docs.google.com/forms/d/e/1FAIpQLSd5QZzYFj22MJcl3ge0yaYGgBp7h6LD2I-Grfz4rMm0sh8etA/formResponse"
           method="post" 
           target="hidden_iframe"
@@ -50,7 +50,8 @@ Needs to be the contact form alone, with a couple of class modifiers depending o
       
       <label for="clientneeds">How can we help?</label>
       <textarea id="clientneeds"
-                name="entry.1867573213"></textarea>
+                name="entry.1867573213"
+                placeholder="How can we help?"></textarea>
 
       <input type="submit"
              value="Send"
@@ -123,11 +124,8 @@ export default {
     display: none !important;
   }
   
-  .contact-form-inner {
+  .contact-form {
     @include wrapper(center, center);
-    @include absolute-from($laptop);
-      top: -75%;
-    
     @include column(24);
     padding: $space-heavy;
     max-width: 720px;
@@ -141,8 +139,6 @@ export default {
       padding-bottom: $space-medium;
     }
     
-    label {display: none;}
-    
     label {
       @include column(22);
       padding-bottom: $space-lighter;
@@ -150,7 +146,8 @@ export default {
     }
     
     input:not([type="submit"]), textarea {
-      @include column(22);
+      @include column(23);
+        @include column-break($tablet, 22);
       padding: $space-lighter;
       margin-bottom: $space-light;
       background-color: $shade-light;

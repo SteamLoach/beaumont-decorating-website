@@ -46,6 +46,24 @@ $project-transition-duration: 0.3s;
 }
 
 //Theme
+@mixin underline-span($width, $height, $color) {
+        
+  display: inline-block;
+  position: relative;
+  padding-bottom: $space-lighter;
+      
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: $width;
+      background-color: $color;
+      height: $height;
+    }
+  }
+
+
 @mixin under-shadow() {
   box-shadow: 0 5px 20px -5px $shade-darker;
 }

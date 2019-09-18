@@ -3,7 +3,7 @@
   <section class="service-panel"
            :class="content.classExtensions">
     <div class="service-panel-inner">
-    
+      <h2 class="service-panel-title"><span> {{content.title}} </span></h2>
       <div v-for="item in content.serviceItems"
            class="service-item">
         <svg-loader :icon="item.icon"></svg-loader>
@@ -53,8 +53,18 @@ export default {
       @include align-c(stretch);
     max-width: $project-max-content-width;
     @include y-pad($outer-space-heavy);
-      @include x-pad-from($tablet, $space-heavy);
-        @include x-pad-from($desktop, 0px);
+      @include x-pad-between($tablet, $desktop, $outer-space-heavy);
+  }
+  
+  .service-panel-title {
+    width: 100%;
+    text-align: center;
+    padding-bottom: $space-heavier;
+    
+    span {
+      @include underline-span(100%, 5px, $brand-accent);
+      padding-bottom: $space-medium;
+    }
   }
   
   .service-item {
@@ -83,19 +93,7 @@ export default {
       padding-top: $space-light;
       
       span {
-        display: inline-block;
-        position: relative;
-        padding-bottom: $space-lighter;
-      
-        &:after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          background-color: $shade-light;
-          height: 5px;
-        }
+        @include underline-span(100%, 5px, $shade-light);
       }
     }
     
