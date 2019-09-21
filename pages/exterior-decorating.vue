@@ -9,7 +9,6 @@
     </page-header>
     
     <content-panels :panels="Page.contentPanels"></content-panels>
-  ` <contact-form></contact-form>
     
   </div>
 

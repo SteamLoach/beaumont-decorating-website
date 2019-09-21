@@ -46,6 +46,9 @@ $project-transition-duration: 0.3s;
 }
 
 //Theme
+
+
+//Underline Span
 @mixin underline-span($width, $height, $color) {
         
   display: inline-block;
@@ -61,8 +64,7 @@ $project-transition-duration: 0.3s;
       background-color: $color;
       height: $height;
     }
-  }
-
+}
 
 @mixin under-shadow() {
   box-shadow: 0 5px 20px -5px $shade-darker;

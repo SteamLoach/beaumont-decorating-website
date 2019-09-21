@@ -57,7 +57,32 @@ export default {
     position: relative;
     min-height: 100vh;
   }
-    
+  
+  //Content Panels
+  .content-panel-inner {
+    @include container(around, start);
+    @include align-c(stretch);
+    max-width: $project-max-content-width;
+    @include y-pad($outer-space-heavy);
+    @include x-pad-between($tablet, $desktop, $outer-space-heavy);
+  }
+  
+  .content-panel-title {
+    width: 100%;
+    text-align: center;
+    padding-bottom: $space-heavier;
+
+      span {
+        @include underline-span(75%, 5px, $brand-accent);
+        padding-bottom: $space-medium;
+
+        &:after {
+          @include x-center-absolute();
+        }
+      }
+  }
+  
+  //Lightbox
   .lightbox-overlay {
     z-index: 5;
     position: absolute;

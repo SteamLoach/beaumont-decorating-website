@@ -1,10 +1,3 @@
-<!----
-
-Needs to be the contact form alone, with a couple of class modifiers depending on where it's located (homepage/contact page etc)
-
----->
-
-
 <template>
     
     <form class="contact-form"
@@ -60,32 +53,6 @@ Needs to be the contact form alone, with a couple of class modifiers depending o
              :disabled="!canSubmit"/>
 
     </form>
-    
-    <!---
-    <article class="secondary-contacts">
-    
-      <div class="contact-method">
-        <svg-loader :icon="'phone-icon'"></svg-loader>
-        <p>07972 797 897</p>
-      </div>
-      
-      <div class="contact-method">
-        <svg-loader :icon="'facebook-icon'"></svg-loader>
-        <p>Find Us On Facebook</p>
-      </div>
-      
-      <div class="contact-method">
-        <svg-loader :icon="'location-icon'"></svg-loader>
-        <p>10 Benis Drive
-          <br>
-          Newbold
-          <br>
-          Chesterfield
-        </p>
-      </div>
-  
-    </article>
-    --->
 
 </template>
 
@@ -160,7 +127,7 @@ export default {
     @extend %cta;
     @include column(20);
     max-width: 250px;
-    @include y-margin($space-light);
+    margin-bottom: $space-light;
     color: $shade-base;
     border-color: $shade-base;
     

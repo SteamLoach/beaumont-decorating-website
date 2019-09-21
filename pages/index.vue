@@ -2,11 +2,13 @@
 
   <main>
     
+    <!-- Maybe look at creating a distinct page header content model -->
     <page-header :featureImage="Page.featureImage[0].url"
                  :title="Page.pageTitle"
                  :strapline="Page.pageStrapline"> 
     </page-header>
     
+    <!-- Does this need it's own component? (no) -->
     <section class="homepage-intro">
       <div class="homepage-intro-inner">
         <div class="content-left">
@@ -98,6 +100,10 @@ export default {
       h2 span {
         @include underline-span(25%, 5px, $brand-accent);
         padding-bottom: $space-medium;
+        
+        &:after {
+          @include x-center-absolute-until($tablet);
+        }
       }
     }
     

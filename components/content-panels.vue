@@ -11,21 +11,19 @@
 
 
 <script>
-
   
-  
-import teaserPanel from '~/components/content-panels/teaser-panel.vue';
 import servicePanel from '~/components/content-panels/service-panel.vue';
 import reviewPanel from '~/components/content-panels/review-panel.vue' ; 
+import recentProjectPanel from '~/components/content-panels/recent-project-panel.vue' ;
   
 export default {
   
   props: ['panels'],
   
   components: {
-    teaserPanel,
     servicePanel,
-    reviewPanel
+    reviewPanel,
+    recentProjectPanel
   }
   
 }

@@ -17,6 +17,7 @@ import livingRoom from '~/components/svg-icons/living-room.vue' ;
 import phoneIcon from '~/components/svg-icons/phone-icon.vue';
 import locationIcon from '~/components/svg-icons/location-icon.vue';
 import facebookIcon from '~/components/svg-icons/facebook-icon.vue';
+import paperPlane from '~/components/svg-icons/paper-plane.vue' ;
   
 //Interior
 import paintBrush from '~/components/svg-icons/paint-brush.vue';
@@ -55,7 +56,8 @@ export default {
     woodenWindows,
     phoneIcon,
     facebookIcon,
-    locationIcon
+    locationIcon,
+    paperPlane
   }
   
 }
