@@ -31,57 +31,9 @@ export default {
 <style lang="scss">
    
   
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: $shade-darkest;
-    line-height: 1.2;
-  }
-  
-  h1 {font-size: 2.2rem;}
-  h2 {font-size: 1.4rem;}
-  h3 {font-size: 1.2rem;}
-
-  html {
-    background-color: $page-background;
-    font-family: $primary-font;
-    font-size: $font-size-root;
-    line-height: $line-height-root;
-    color: $default-font-color;
-  }
-  
-  body {
-    position: relative;
-    min-height: 100vh;
-  }
-  
-  //Content Panels
-  .content-panel-inner {
-    @include container(around, start);
-    @include align-c(stretch);
-    max-width: $project-max-content-width;
-    @include y-pad($outer-space-heavy);
-    @include x-pad-between($tablet, $desktop, $outer-space-heavy);
-  }
-  
-  .content-panel-title {
-    width: 100%;
-    text-align: center;
-    padding-bottom: $space-heavier;
-
-      span {
-        @include underline-span(75%, 5px, $brand-accent);
-        padding-bottom: $space-medium;
-
-        &:after {
-          @include x-center-absolute();
-        }
-      }
-  }
-  
+  //HTML Base
+  html{@extend %html-base;}
+    
   //Lightbox
   .lightbox-overlay {
     z-index: 5;
@@ -89,9 +41,7 @@ export default {
     width: 0;
     height: 0;
     background-color: rgba(0,0,0,0.0);
-    transition-property: background-color;
-    transition-duration: $project-transition-duration;
-    transition-timing-function: ease-in-out;
+    @include standard-transition(background-color);
     
     &.is-active {
       width: 100%;
@@ -99,6 +49,12 @@ export default {
       background-color: rgba(0,0,0,0.6);
     }
   }
+  
+  //THEME//
+  
+  //Cards
+  .small-card {@extend %small-card;}
+  .medium-card {@extend %medium-card;}
   
 </style>
 

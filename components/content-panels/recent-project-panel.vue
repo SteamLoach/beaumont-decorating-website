@@ -1,9 +1,10 @@
 <template>
 
-  <section class="recent-project-panel">
+  <section class="content-panel recent-project-panel">
   
-    <div class="content-panel-inner">
-      <h2 class="content-panel-title"><span> {{content.title}} </span></h2>
+    <h2 class="content-panel-title"><span> {{content.title}} </span></h2>
+    <div class="content-item-wrapper">
+      
       <div v-for="item in content.recentProjectItems"
            class="recent-project-item">
         <span class="hover-prompt"> + </span>
@@ -38,11 +39,8 @@ export default {
     
     .recent-project-item {
       position: relative;
-      overflow: hidden;
-      @include column(22);
-        @include column-break($fablet, 18);
-          @include column-break($tablet, 11);
-            @include column-break($laptop, 7);
+      overflow: hidden;      
+      @include items-per-row(3);
       margin-bottom: $outer-space-light;
         @include oneway-margin-from($tablet, $outer-space-medium);
       
@@ -55,7 +53,7 @@ export default {
         padding-right: $space-light;
         color: $brand-1;
         opacity: 1;
-        @include project-transition(opacity);
+        @include standard-transition(opacity);
       }
       
       &:hover {
@@ -73,7 +71,7 @@ export default {
         font-size: 0.8rem;
         color: $offset-font-color;
         background-color: $brand-1;
-        @include project-transition(top);
+        @include standard-transition(top);
         
         p {
           padding: $space-light;

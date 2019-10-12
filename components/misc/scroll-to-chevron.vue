@@ -28,7 +28,7 @@ export default {
     display:block;
     height:50px;
     width: 50px;/*height should be double border*/
-    transition: top $project-transition-duration ease;
+    @include standard-transition(top);
     
     &:hover {
       cursor: pointer;

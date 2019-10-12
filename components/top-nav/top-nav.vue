@@ -101,7 +101,7 @@ export default {
     @include x-pad-until($laptop, $space-lighter);
     font-family: $secondary-font;
     color: $brand-1;
-    transition-duration: $project-transition-duration;
+    transition-duration: $transition-duration;
     transition-property: box-shadow, background-color;
     transition-timing-function: linear;
     
@@ -110,7 +110,7 @@ export default {
       @include down-shadow(light);
       
       .nav-logo {
-        transition-duration: $project-transition-duration;
+        transition-duration: $transition-duration;
         transition-property: opacity;
         transition-timing-function: ease-in;
         opacity: 1;

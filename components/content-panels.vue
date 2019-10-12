@@ -1,6 +1,6 @@
 <template>
 
-  <section class="content-panels">
+  <section class="content-panel-wrapper">
     <component v-for="panel in panels"
                :is="panel.componentReference"
                :key="panel.id"
@@ -32,9 +32,13 @@ export default {
 
 <style lang="scss">
 
-  .content-panels {
-    @include row(center,center);
-  }
+  //Content Panels
+  .content-panel-wrapper {@extend %content-panel-wrapper;}
+  .content-panel {@extend %content-panel;}
+  .content-panel-title {@extend %content-panel-title;}
+  
+  //Content Items
+  .content-item-wrapper {@extend %content-item-wrapper;}
 
 </style>
 

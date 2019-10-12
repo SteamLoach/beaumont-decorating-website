@@ -1,18 +1,8 @@
 ////VARIABLES
 
-//Page Defaults
-$project-max-content-width: 1140px;
-
 //Nav
 $mobile-nav-height: 70px;
 $tablet-nav-height: 75px;
-
-//Theme
-$project-border-radius: 10px;
-$project-border-color: $shade-base;
-
-$project-transition-duration: 0.3s;
-
 
 
 ////MIXINS & CLASS DEFAULTS
@@ -23,55 +13,4 @@ $project-transition-duration: 0.3s;
   background-position: center; 
 }
 
-//CTAs
 
-@mixin centered-background() {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-%cta {
-  @include x-pad($space-medium);
-  @include y-pad($space-lighter);
-  color: $brand-1;
-  border: solid 2px $brand-1;
-  border-radius: 25px;
-    
-  &:hover {
-    cursor: pointer;
-    color: $offset-font-color;
-    background-color: $brand-1;
-  }
-}
-
-//Theme
-
-
-//Underline Span
-@mixin underline-span($width, $height, $color) {
-        
-  display: inline-block;
-  position: relative;
-  padding-bottom: $space-lighter;
-      
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: $width;
-      background-color: $color;
-      height: $height;
-    }
-}
-
-@mixin under-shadow() {
-  box-shadow: 0 5px 20px -5px $shade-darker;
-}
-
-@mixin project-transition($prop) {
-  transition-property: $prop;
-  transition-duration: $project-transition-duration;
-  transition-timing-function: ease-in-out;
-}

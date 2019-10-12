@@ -47,7 +47,7 @@ export default {
     top: 0;
     text-align: center;
     transition-property: right;
-    transition-duration: $project-transition-duration;
+    transition-duration: $transition-duration;
     transition-timing-function: linear;
   }
   
@@ -56,7 +56,7 @@ export default {
     @include column(22);
     max-height: 100vh;
     @include margin-from($tablet, top, $outer-space-medium) 
-    border-radius: $project-border-radius;
+    border-radius: $border-radius;
   }
   
   .responsive-nav-link {

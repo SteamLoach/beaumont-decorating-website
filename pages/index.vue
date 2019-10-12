@@ -82,7 +82,7 @@ export default {
           @include y-pad-from($laptop, $space-heaviest);
           @include y-from($laptop, stretch);
             @include x-from($desktop, between);
-    max-width: $project-max-content-width;
+    max-width: $max-content-width;
     @include y-pad($space-medium);
     
     .content-left, .content-right {

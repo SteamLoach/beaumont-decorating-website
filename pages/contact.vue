@@ -56,7 +56,7 @@ export default {
   
     .panel-inner {
       @include container(around, start);
-      max-width: $project-max-content-width;
+      max-width: $max-content-width;
       //Think about moving this to a higher variable ($panel-y-padding or something)
       @include y-pad($outer-space-heavy);
     }
@@ -92,7 +92,7 @@ export default {
           @include column-break($laptop, 11);
             @include column-break($desktop, 9);
       padding: $space-heavier;
-      border-radius: $project-border-radius;
+      border-radius: border-radius;
       @include under-shadow();
       
       h3 {padding-bottom: $space-medium};

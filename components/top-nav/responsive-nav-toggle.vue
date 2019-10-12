@@ -34,7 +34,7 @@ export default {
     width: 50px;
     border-radius: 15px;
     transition-property: background-color, transform;
-    transition-duration: $project-transition-duration;
+    transition-duration: $transition-duration;
     transition-timing-function: ease;
   }
 

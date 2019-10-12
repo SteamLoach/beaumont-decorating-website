@@ -1,11 +1,15 @@
 <template>
 
-  <article class="review-panel">
-    <div class="content-panel-inner">
-      <h2 class="content-panel-title"><span> {{content.title}}</span></h2>
+  <article class="content-panel review-panel">
+    
+    <h2 class="content-panel-title"><span> {{content.title}}</span></h2>
+    
+    <div class="content-item-wrapper">  
       <div v-for="item in content.reviewItems"
            class="review-item">
-        <p class="review-body"> {{item.review}} </p>
+        
+        <p class="review-body medium-card is-shadowed is-rounded"> {{item.review}} </p>
+        
         <div class="review-footer">
           <img :src="item.image[0].url"/>
           <div class="customer-info">
@@ -37,21 +41,14 @@ export default {
 <style lang="scss">
 
   .review-panel {
-    @include row(center, center);
     background-color: $shade-lightest;
     
     .review-item {
-      @include column(22);
-        @include column-break($tablet, 11);
-      @include margin-until($tablet, bottom, $outer-space-light);
-       font-size: 0.8rem;
-
+      @include items-per-row(2);
+      font-size: 0.8rem;
 
       .review-body {
-        padding: $space-heavier;
-        background-color: $page-background;
-        border-radius: $project-border-radius;
-        @include under-shadow();
+        margin-bottom: 0;
       }
 
       .review-footer {

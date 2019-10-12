@@ -97,7 +97,7 @@ export default {
     padding: $space-heavy;
     max-width: 720px;
     background-color: $page-background;
-    border-radius: $project-border-radius;
+    border-radius: $border-radius;
     @include under-shadow();
     
     h4 {
@@ -119,7 +119,7 @@ export default {
       margin-bottom: $space-light;
       background-color: $shade-light;
       border-color: $brand-1;
-      border-radius: $project-border-radius;
+      border-radius: $border-radius;
     }
   }
 

@@ -1,18 +1,20 @@
 <template>
 
-  <section class="service-panel"
+  <article class="content-panel service-panel"
            :class="content.classExtensions">
-    <div class="content-panel-inner">
-      <h2 class="content-panel-title"><span> {{content.title}} </span></h2>
+    
+    <h2 class="content-panel-title"><span> {{content.title}} </span></h2>
+    
+    <div class="content-item-wrapper">
       <div v-for="item in content.serviceItems"
-           class="service-item">
+           class="service-item medium-card is-shadowed is-rounded">
         <svg-loader :icon="item.icon"></svg-loader>
-        <h3><span>{{item.title}}</span></h3>
+        <h3 class="card-title"><span>{{item.title}}</span></h3>
         <p> {{item.text}} </p>
       </div>
     
     </div>
-  </section>
+  </article>
 
 </template>
 
@@ -35,7 +37,6 @@ export default {
 <style lang="scss">
   
   .service-panel {
-    @include row(center, center);
     background-color: $brand-shade;
     
     .service-icon {
@@ -46,36 +47,12 @@ export default {
         fill: $brand-accent;
       }
     } 
-      
-    .service-item {
-      @include column(22);
-        @include column-break($tablet, 11);
-          @include column-break($laptop, 9);
-            @include column-break($desktop, 7);
-      margin-bottom: $outer-space-light;
-        @include margin-from($tablet, bottom, $outer-space-heavy);
-      padding: $space-heavy;
+  }  
+    
+  .service-item {
+    @include items-per-row(3);
 
-      background-color: $page-background;
-      font-size: 0.8rem;
-
-      @include project-transition(all);
-      @include under-shadow(); 
-
-      border-radius: $project-border-radius;
-
-
-      h3, p {
-        padding-bottom: $space-light;
-      }
-
-      h3 {
-        padding-top: $space-light;
-
-        span {
-          @include underline-span(100%, 5px, $shade-light);
-        }
-      }
+      h3 span {@include underline-span(100%, 5px, $shade-light);}
 
       &:hover {
         background-color: $brand-1;
@@ -89,7 +66,7 @@ export default {
         .service-icon {fill: $offset-font-color;}
       }
     }
-}
+
     
 
 
