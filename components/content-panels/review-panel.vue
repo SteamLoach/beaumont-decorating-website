@@ -44,7 +44,7 @@ export default {
     background-color: $shade-lightest;
     
     .review-item {
-      @include column-scale(22, null, 11);
+      @include column-scale(22, null, null, 11);
       font-size: 0.8rem;
 
       .review-body {

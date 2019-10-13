@@ -51,7 +51,7 @@ export default {
     
   .service-item {
     @include medium-card();
-    @include column-scale(22, 20, 11, 7, null);
+    @include column-scale(22, null, 20, 11, 7, null);
 
       h3 span {@include underline-span(100%, 5px, $shade-light);}
 

@@ -3,8 +3,8 @@
   <section class="content-panel recent-project-panel">
   
     <h2 class="content-panel-title"><span> {{content.title}} </span></h2>
+    
     <div class="content-item-wrapper">
-      
       <div v-for="item in content.recentProjectItems"
            class="recent-project-item">
         <span class="hover-prompt"> + </span>
@@ -40,7 +40,7 @@ export default {
     .recent-project-item {
       position: relative;
       overflow: hidden;      
-      @include column-scale(22, 18, 11, 7, null);
+      @include column-scale(22, null, 18, 11, 7, null);
       margin-bottom: $outer-space-light;
         @include oneway-margin-from($tablet, $outer-space-medium);
       

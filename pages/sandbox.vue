@@ -2,7 +2,7 @@
 
   <main class=sandbox>
   
-    <service-panel :content="Page.contentPanels[0]"></service-panel>
+    <image-gallery :content="Page.contentPanels[1]"></image-gallery>
   
   </main>
 
@@ -12,11 +12,11 @@
 
 <script>
 
-import servicePanel from '~/components/content-panels/service-panel.vue';
+import imageGallery from '~/components/content-panels/image-gallery.vue';
   
 export default {
   components: {
-    servicePanel,
+    imageGallery,
   },
   
   computed: {

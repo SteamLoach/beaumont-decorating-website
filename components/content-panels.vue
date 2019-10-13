@@ -15,6 +15,7 @@
 import servicePanel from '~/components/content-panels/service-panel.vue';
 import reviewPanel from '~/components/content-panels/review-panel.vue' ; 
 import recentProjectPanel from '~/components/content-panels/recent-project-panel.vue' ;
+import imageGallery from '~/components/content-panels/image-gallery.vue' ;
   
 export default {
   
@@ -23,7 +24,8 @@ export default {
   components: {
     servicePanel,
     reviewPanel,
-    recentProjectPanel
+    recentProjectPanel,
+    imageGallery
   }
   
 }
