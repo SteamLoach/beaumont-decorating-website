@@ -94,7 +94,9 @@ export default {
   .contact-form {
     @include wrapper(center, center);
     @include column(24);
-    padding: $space-heavy;
+    @include y-pad($space-heavy);
+    @include x-pad($space-light);
+     @include x-pad-from($tablet, $space-heavy);
     max-width: 720px;
     background-color: $page-background;
     border-radius: $border-radius;

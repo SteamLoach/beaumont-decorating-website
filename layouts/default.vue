@@ -49,12 +49,7 @@ export default {
       background-color: rgba(0,0,0,0.6);
     }
   }
-  
-  //THEME//
-  
-  //Cards
-  .small-card {@extend %small-card;}
-  .medium-card {@extend %medium-card;}
+
   
 </style>
 

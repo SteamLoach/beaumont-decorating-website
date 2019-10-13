@@ -7,7 +7,7 @@
     
     <div class="content-item-wrapper">
       <div v-for="item in content.serviceItems"
-           class="service-item medium-card is-shadowed is-rounded">
+           class="service-item">
         <svg-loader :icon="item.icon"></svg-loader>
         <h3 class="card-title"><span>{{item.title}}</span></h3>
         <p> {{item.text}} </p>
@@ -50,7 +50,8 @@ export default {
   }  
     
   .service-item {
-    @include items-per-row(3);
+    @include medium-card();
+    @include column-scale(22, 20, 11, 7, null);
 
       h3 span {@include underline-span(100%, 5px, $shade-light);}
 

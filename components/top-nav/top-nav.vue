@@ -96,9 +96,8 @@ export default {
     position: fixed;
     top: 0;
     @include row(between, center);
-    height: $mobile-nav-height;
-      @include height-break($tablet, $tablet-nav-height);
     @include x-pad-until($laptop, $space-lighter);
+    @include y-pad-until($laptop, $space-lighter);
     font-family: $secondary-font;
     color: $brand-1;
     transition-duration: $transition-duration;
@@ -107,7 +106,7 @@ export default {
     
     &.is-sticky, &.is-active, &:hover {
       background-color: rgba(230, 230, 232, 0.6); 
-      @include down-shadow(light);
+      @include down-shadow(light, $shade-base);
       
       .nav-logo {
         transition-duration: $transition-duration;
@@ -143,20 +142,13 @@ export default {
     
     a {
       width: 100%;
-      line-height: 2.2;
+      @include y-pad($space-light);
       
       &.nuxt-link-exact-active {
         @extend %active-nav-link;
         background-size: 95% auto;
       }
     }
-    
-  }
-    
-  .nav-link-wrapper.is-active {
-    
-    right: 0;
-    
   }
 
 </style>

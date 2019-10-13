@@ -8,7 +8,7 @@
       <div v-for="item in content.reviewItems"
            class="review-item">
         
-        <p class="review-body medium-card is-shadowed is-rounded"> {{item.review}} </p>
+        <p class="review-body"> {{item.review}} </p>
         
         <div class="review-footer">
           <img :src="item.image[0].url"/>
@@ -44,10 +44,11 @@ export default {
     background-color: $shade-lightest;
     
     .review-item {
-      @include items-per-row(2);
+      @include column-scale(22, null, 11);
       font-size: 0.8rem;
 
       .review-body {
+        @include medium-card();
         margin-bottom: 0;
       }
 

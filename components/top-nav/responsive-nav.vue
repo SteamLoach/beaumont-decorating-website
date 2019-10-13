@@ -25,7 +25,7 @@ export default {
   
   mixins: [navMutations],
   
-  props: ['state', 'navLinks'],
+  props: ['state', 'navLinks']
     
 }
   
@@ -38,25 +38,19 @@ export default {
     overflow-y: scroll;
     @include hidden-from($laptop);
     position: absolute;
-    @include row(center, center);
-      @include y-from($tablet, start);
-    padding-top: $mobile-nav-height;
-      @include pad-from($tablet, top, $tablet-nav-height);
+    @include column(20);
+    @include y-pad($space-heaviest);
     height: 100vh;
     right: -100%;
     top: 0;
     text-align: center;
-    transition-property: right;
-    transition-duration: $transition-duration;
+    background-color: $page-background;
+    @include standard-transition(right);
     transition-timing-function: linear;
   }
   
-  .responsive-nav-inner {
-    overflow: hidden;
-    @include column(22);
-    max-height: 100vh;
-    @include margin-from($tablet, top, $outer-space-medium) 
-    border-radius: $border-radius;
+  .responsive-nav-inner { 
+    width: 100%;
   }
   
   .responsive-nav-link {

@@ -40,7 +40,7 @@ export default {
     .recent-project-item {
       position: relative;
       overflow: hidden;      
-      @include items-per-row(3);
+      @include column-scale(22, 18, 11, 7, null);
       margin-bottom: $outer-space-light;
         @include oneway-margin-from($tablet, $outer-space-medium);
       
@@ -74,8 +74,7 @@ export default {
         @include standard-transition(top);
         
         p {
-          padding: $space-light;
-            @include xy-pad-between($tablet, $laptop, $space-heavy);
+          padding: $space-heavy;
         }
       }
     
