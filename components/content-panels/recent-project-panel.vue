@@ -4,7 +4,7 @@
   
     <h2 class="content-panel-title"><span> {{content.title}} </span></h2>
     
-    <div class="content-item-wrapper">
+    <div class="content-panel-inner">
       <div v-for="item in content.recentProjectItems"
            class="recent-project-item">
         <span class="hover-prompt"> + </span>

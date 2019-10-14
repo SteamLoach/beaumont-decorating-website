@@ -15,7 +15,7 @@
 import servicePanel from '~/components/content-panels/service-panel.vue';
 import reviewPanel from '~/components/content-panels/review-panel.vue' ; 
 import recentProjectPanel from '~/components/content-panels/recent-project-panel.vue' ;
-import imageGallery from '~/components/content-panels/image-gallery.vue' ;
+import galleryPanel from '~/components/content-panels/gallery-panel.vue' ;
   
 export default {
   
@@ -25,7 +25,7 @@ export default {
     servicePanel,
     reviewPanel,
     recentProjectPanel,
-    imageGallery
+    galleryPanel
   }
   
 }
@@ -40,7 +40,7 @@ export default {
   .content-panel-title {@extend %content-panel-title;}
   
   //Content Items
-  .content-item-wrapper {@extend %content-item-wrapper;}
+  .content-panel-inner {@extend %content-panel-inner;}
 
 </style>
 

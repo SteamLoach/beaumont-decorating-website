@@ -10,6 +10,8 @@
     
     <content-panels :panels="Page.contentPanels"></content-panels>
     
+    <div style="width: 100%; height: 500px;"></div>
+    
   </div>
 
 </template>

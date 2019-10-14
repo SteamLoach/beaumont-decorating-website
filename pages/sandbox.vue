@@ -2,8 +2,6 @@
 
   <main class=sandbox>
   
-    <image-gallery :content="Page.contentPanels[1]"></image-gallery>
-  
   </main>
 
 </template>
@@ -11,13 +9,8 @@
 
 
 <script>
-
-import imageGallery from '~/components/content-panels/image-gallery.vue';
   
 export default {
-  components: {
-    imageGallery,
-  },
   
   computed: {
     Page: function() {
