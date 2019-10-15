@@ -7,19 +7,21 @@
     <div class="content-panel-inner">
       
       <div class="slide-gallery">  
-        <span class="previous-image"
-              @click="previousSlide">&#10094;</span>
+        <div class="previous-image"
+              @click="previousSlide">&#10094;</div>
           <div class="gallery-aperture">
             <div class="image-strip"
                  :style="currentPosition">
               <div v-for="image in images"
                    class="image-wrapper">
                 <img :src="image.image[0].url"/>
+                <p v-if="image.caption"
+                     class="caption"> {{image.caption}} </p>
               </div>
             </div>
           </div>
-        <span class="next-image"
-              @click="nextSlide">&#10095;</span>
+        <div class="next-image"
+              @click="nextSlide">&#10095;</div>
       </div>
       
     </div>
@@ -53,9 +55,15 @@ export default {
   methods: {
     nextSlide: function() {
       this.stripPosition += 1;
+      if (this.stripPosition >= this.images.length) {
+        this.stripPosition = 0;
+      }
     },
     previousSlide: function() {
       this.stripPosition -= 1;
+      if (this.stripPosition < 0) {
+        this.stripPosition = this.images.length - 1 ;
+      }
     },
   }
   
@@ -68,12 +76,16 @@ export default {
     
   .slide-gallery {
     @include container(center, center);
-    @include column-scale(23, 22, 20, 24, 20);
+    @include column-scale(22, 22, 20, 24, 20);
+    @include y-pad($space-medium);
+    @include under-shadow();
+    border-radius: $border-radius;
   }
   
   .gallery-aperture {
-    @include column-scale(22);
+    @include column-scale(20);
     overflow: hidden;
+    background-color: $shade-lightest;
   }
   
   .image-strip {
@@ -82,7 +94,7 @@ export default {
     flex-wrap: nowrap;
     width: 100%;
     @include standard-transition(left);
-    transition-duration: 1s;
+    transition-duration: 0.6s;
   }
   
   .image-wrapper {
@@ -90,20 +102,33 @@ export default {
     @include height-scale(250px, 275px, 375px, 500px, 575px, 650px);
     min-width: 100%;
     max-width: 100%;
+    
+    .caption {
+      position: absolute;
+        bottom: 0;
+      width: 100%;
+      padding: $space-lighter;
+      text-align: center;
+      font-size: 0.8rem;
+      color: $offset-font-color;
+      @include opaque-black();
+    }
   }
   
   .next-image,
   .previous-image {
-    z-index: 1;
     position: absolute;
-      @include y-center-absolute();
-    @include y-pad($space-lighter);
-    @include font-size-from($tablet, 2rem)
+    z-index: 1;
+    padding: $space-lightest;
+      @include xy-pad-from($tablet, $space-light);
+    @include font-size-from($fablet, 1.2rem);
+      @include font-size-from($tablet, 1.6rem);
     &:hover {cursor: pointer;}
   }
   
   .next-image {right: 0;}
   .previous-image {left: 0;}
+  
   
   
 </style>

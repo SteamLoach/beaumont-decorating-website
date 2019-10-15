@@ -8,9 +8,12 @@
       <scroll-to-chevron :scrollTarget="'.page-feature-image'"></scroll-to-chevron>
     </page-header>
     
-    <content-panels :panels="Page.contentPanels"></content-panels>
+    <page-intro :title="Page.pageTitle"
+                :intro="Page.pageIntro"> 
+      <svg-loader :icon="'fence-posts'"></svg-loader>
+    </page-intro>
     
-    <div style="width: 100%; height: 500px;"></div>
+    <content-panels :panels="Page.contentPanels"></content-panels>
     
   </div>
 

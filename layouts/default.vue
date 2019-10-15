@@ -49,6 +49,15 @@ export default {
       background-color: rgba(0,0,0,0.6);
     }
   }
+  
+  //Page Intro Icons
+  .page-intro-icon {
+    width: 100%;
+    height: 350px;
+    fill: $brand-1;
+    
+    .icon-highlight {fill: $brand-accent};
+  }
 
   
 </style>

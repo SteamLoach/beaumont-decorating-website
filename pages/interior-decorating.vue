@@ -9,6 +9,11 @@
       <scroll-to-chevron :scrollTarget="'.page-feature-image'"></scroll-to-chevron>
     </page-header>
     
+    <page-intro :title="Page.pageTitle"
+                :intro="Page.pageIntro"> 
+      <svg-loader :icon="'living-room'"></svg-loader>
+    </page-intro>
+    
     <content-panels :panels="Page.contentPanels"></content-panels>
   
   </div>

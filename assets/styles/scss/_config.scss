@@ -3,14 +3,18 @@ $max-content-width: 1240px;
 
 //Colors
 $page-background: #ffffff;
-$brand-1: #2e3192;
-$brand-2: #117790;
-$brand-3: #92140C;
-$brand-offset: #EDF2F4;
-$brand-accent: #FB7400;
-$brand-shade: #DEDFFE;
-$brand-shade-light: '';
-$brand-shade-lightest: '';
+
+$brand-1: #001368 ;
+$brand-2: #0461AA ;
+$brand-3: #FF5964 ;
+$brand-accent: #CE2213 ;
+$brand-offset: #EDF2F4 ;
+
+$brand-4: #06D6A0 ;
+$brand-5: #06D6A0 ; 
+$brand-shade-1: rgba($brand-1, 0.2) ;
+$brand-shade-2: rgba($brand-2, 0.2) ;
+$brand-shade-3: #DEDFFE ;
 
 //Fonts
 $primary-font: 'Montserrat', sans-serif;
@@ -21,6 +25,7 @@ $offset-font-color: #E9E9E9;
 /********SPACING********/
 
 /****Inner****/
+$space-lightest: 0.2rem;
 $space-lighter: 0.4rem ;
 $space-light: 0.8rem ;
 $space-medium: 1.2rem ;
@@ -29,6 +34,7 @@ $space-heavier: 2.4rem ;
 $space-heaviest: 4rem ;
 
 /****Outer****/
+$outer-space-lightest: 0.2rem;
 $outer-space-lighter: 0.8rem ;
 $outer-space-light: 1.2rem ;
 $outer-space-medium: 1.8rem ;

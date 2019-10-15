@@ -64,15 +64,12 @@ export default {
       width: 100%;
       @include y-pad($space-medium);    
       
-      
       &.nuxt-link-exact-active {
         @extend %active-nav-link;
-        background-size: auto 80%;
+        background-size: 95% auto;
       }
     }
     
-
-
   }
   
   .responsive-nav.is-active {

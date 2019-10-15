@@ -37,7 +37,7 @@ export default {
 <style lang="scss">
   
   .service-panel {
-    background-color: $brand-shade;
+    background-color: $brand-shade-1;
     
     .service-icon {
       width: 100px;

@@ -1,6 +1,6 @@
 <template>
 
-  <main>
+  <main class="center-all">
   
     <section class="primary-contact-panel">
   
@@ -50,9 +50,13 @@ export default {
 
 <style lang="scss">
   
+  .center-all {
+    @include row(center, center);
+    min-height: 100vh;
+  }
+  
   .primary-contact-panel {
     @include row(center, center);
-    background-color: $shade-light;
   
     .panel-inner {
       @include container(around, start);
@@ -88,14 +92,12 @@ export default {
     
     .secondary-contacts {
       @include column(22);
+      @include medium-card();
+      font-size: 1rem;
         @include column-break($tablet, 16);
           @include column-break($laptop, 11);
             @include column-break($desktop, 9);
-      padding: $space-heavier;
-      border-radius: border-radius;
-      @include under-shadow();
-      
-      h3 {padding-bottom: $space-medium};
+
       
       .contact-icon {
         height: 40px;
