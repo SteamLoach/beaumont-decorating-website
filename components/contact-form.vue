@@ -9,7 +9,8 @@
       <script type="text/javascript">var formIsSubmitted=false;</script>
       <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(formIsSubmitted) {window.location='/beaumont-decorating-website/form-confirmation';}"></iframe>  
       
-      <h4>Get in touch for a free quotation</h4>
+      <h3>Get in touch for a free quotation</h3>
+      
       
       <label for="clientname">What's your name?</label>
       <input v-model="formValidation.name"
@@ -17,7 +18,24 @@
              id="clientname"
              name="entry.1089229558"
              placeholder="Your name..." required>
+      <!-- 
+        If we're going to implement forms via Kentico then each 
+        'Input' model will need:
 
+        - Type (text, number, email) <checkbox>
+        - Required <checkbox>
+        - Identifier (clientname) <text field> [for, v-model, id]
+        - Label ('Your name') <text field>
+        - Placeholder ('Enter your name') <text field>
+        - Endpoint (entry.########) <text-field>
+        
+        Additionally, the form model itself could have:
+        
+        - Comment Box (yes/no - renders a textarea) <checkbox>
+      -->
+      
+      
+      
       <label for="clientnumber">What's your number?</label>
       <input v-model="formValidation.number"
              type="number"
@@ -87,41 +105,27 @@ export default {
 
 <style lang="scss">
   
+  //Form needs a wrapper to contain it 
+  
   .honeypot {
     display: none !important;
   }
   
   .contact-form {
-    @include wrapper(center, center);
-    @include column(24);
-    @include y-pad($space-heavy);
-    @include x-pad($space-light);
-     @include x-pad-from($tablet, $space-heavy);
-    max-width: 720px;
+    @include row(center, center);
+    @include medium-card($is-centered: true);
+    @include x-pad-until($laptop, $space-light);
     background-color: $page-background;
-    border-radius: $border-radius;
-    @include under-shadow();
-    
-    h4 {
-      width: 100%;
-      text-align: center;
-      padding-bottom: $space-medium;
-    }
     
     label {
       @include column(22);
-      padding-bottom: $space-lighter;
       font-weight: 600;
     }
     
     input:not([type="submit"]), textarea {
       @include column(23);
         @include column-break($tablet, 22);
-      padding: $space-lighter;
-      margin-bottom: $space-light;
       background-color: $shade-light;
-      border-color: $brand-1;
-      border-radius: $border-radius;
     }
   }
 

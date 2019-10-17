@@ -10,7 +10,7 @@
         <span class="hover-prompt"> + </span>
         <img :src="item.image[0].url"/>
         <div class="caption-wrapper">
-          <p> {{ item.caption }} </p>
+          <p> <span> {{ item.caption }} </span> </p>
         </div>
         
       </div>
@@ -40,9 +40,19 @@ export default {
     .recent-project-item {
       position: relative;
       overflow: hidden;      
-      @include column-scale(22, null, 18, 11, 7, null);
-      margin-bottom: $outer-space-light;
-        @include oneway-margin-from($tablet, $outer-space-medium);
+
+      @include column-scale(
+        $on-mobile: 22,
+        $on-fablet: 18,
+        $on-tablet: 11,
+        $on-laptop: 7
+      );
+
+      @include margin-scale(
+        bottom,
+          $on-mobile: $outer-space-light,
+          $on-tablet: $outer-space-medium
+      );
       
       .hover-prompt {
         position: absolute;
@@ -75,6 +85,8 @@ export default {
         
         p {
           padding: $space-heavy;
+          
+          span {@include underline-span($width: 75%)}
         }
       }
     

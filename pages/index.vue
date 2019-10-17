@@ -16,6 +16,12 @@
     
     <content-panels :panels="Page.contentPanels"></content-panels>
     
+    <div class="test-row">
+      
+      <div class="test-box">Benis</div>
+      
+    </div>
+    
   </main>
 
 </template>
@@ -52,12 +58,12 @@ export default {
     @include y-pad($space-heaviest);
     
     .contact-form {
-      @include absolute-from($laptop);
-        bottom: -15%;
+      @include absolute-from($laptop, $bottom: -15%);
       
       label {display: none;}
     }
   }
+    
   
 </style>
 

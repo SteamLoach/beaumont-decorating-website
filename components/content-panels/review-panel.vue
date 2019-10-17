@@ -46,10 +46,13 @@ export default {
     .review-item {
       @include column-scale(22, null, null, 11);
       font-size: 0.8rem;
+      @include margin-scale(
+        bottom, 
+          $on-mobile: $outer-space-light
+        )
 
       .review-body {
         @include medium-card();
-        margin-bottom: 0;
       }
 
       .review-footer {

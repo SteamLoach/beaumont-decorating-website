@@ -51,7 +51,17 @@ export default {
     
   .service-item {
     @include medium-card();
-    @include column-scale(22, null, 20, 11, 7, null);
+    @include column-scale(
+      $on-mobile: 22,
+      $on-fablet: 20,
+      $on-tablet: 11, 
+      $on-laptop: 7
+      );
+    @include margin-scale(
+      bottom,
+        $on-mobile: $outer-space-light,
+        $on-tablet: $outer-space-medium
+      );
 
       h3 span {@include underline-span(100%, 5px, $shade-light);}
 
