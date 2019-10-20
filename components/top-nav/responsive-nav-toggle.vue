@@ -1,6 +1,7 @@
 <template>
   
     <div class="nav-toggle-wrapper"
+         :class="state"
          @click="responsiveNavToggle">
       <div class="nav-toggle"
            :class="state"></div>

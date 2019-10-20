@@ -113,7 +113,7 @@ export default {
   
   .contact-form {
     @include row(center, center);
-    @include medium-card($is-centered: true);
+    @include content-card(medium, $is-centered: true);
     @include x-pad-until($laptop, $space-light);
     background-color: $page-background;
     

@@ -65,8 +65,11 @@ export default {
       @include y-pad($space-medium);    
       
       &.nuxt-link-exact-active {
-        @extend %active-nav-link;
-        background-size: 95% auto;
+        color: $offset-font-color;
+        background-image: url('~assets/navbar_swatch.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto 70%;
       }
     }
     

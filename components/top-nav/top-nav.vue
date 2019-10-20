@@ -100,13 +100,11 @@ export default {
     @include y-pad-until($laptop, $space-lighter);
     font-family: $secondary-font;
     color: $brand-1;
-    transition-duration: $transition-duration;
-    transition-property: box-shadow, background-color;
-    transition-timing-function: linear;
+    @include standard-transition(all);
     
     &.is-sticky, &.is-active, &:hover {
       background-color: rgba(230, 230, 232, 0.6); 
-      @include down-shadow(light, $shade-base);
+      @include down-shadow(light, $shade-dark);
       
       .nav-logo {
         transition-duration: $transition-duration;
@@ -132,7 +130,7 @@ export default {
   .nav-link-wrapper {
     @include hidden-until($laptop);
     @include wrapper(center, center);
-    @include column(16);
+    @include column(18);
     text-align: center;
   }
       
@@ -145,7 +143,10 @@ export default {
       @include y-pad($space-light);
       
       &.nuxt-link-exact-active {
-        @extend %active-nav-link;
+        color: $offset-font-color;
+        background-image: url('~assets/navbar_swatch.png');
+        background-repeat: no-repeat;
+        background-position: center; 
         background-size: 95% auto;
       }
     }

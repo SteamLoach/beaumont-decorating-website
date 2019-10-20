@@ -50,15 +50,6 @@ export default {
     }
   }
   
-  //Page Intro Icons
-  .page-intro-icon {
-    width: 100%;
-    height: 350px;
-    fill: $brand-1;
     
-    .icon-highlight {fill: $brand-accent};
-  }
-
-  
 </style>
 

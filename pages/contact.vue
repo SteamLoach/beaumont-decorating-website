@@ -10,23 +10,21 @@
         <article class="secondary-contacts">
           <h3>Contact Info</h3>
           <div class="contact-method">
-            <svg-loader :icon="'phone-icon'"></svg-loader>
-            <p>07972 797 897</p>
+            <svg-loader class="icon" :icon="'phone-icon'"></svg-loader>
+            <p class="text">07972 797 897</p>
           </div>
       
           <div class="contact-method">
-            <svg-loader :icon="'facebook-icon'"></svg-loader>
-            <p>Find Us On Facebook</p>
+            <svg-loader class="icon" :icon="'facebook-icon'"></svg-loader>
+            <p class="text">Find Us On Facebook</p>
           </div>
       
           <div class="contact-method">
-            <svg-loader :icon="'location-icon'"></svg-loader>
-            <p>10 Benis Drive
-              <br>
-              Newbold
-              <br>
-              Chesterfield
-            </p>
+            <svg-loader class="icon" :icon="'location-icon'"></svg-loader>
+            <div class="text">
+              <h4>Serving</h4>
+              <p>Chesterfield, Sheffield, Alfreton, Matlock, Clay Cross</p>
+            </div>  
           </div>
     </article>
       </div>
@@ -66,16 +64,19 @@ export default {
     }
     
     .contact-form {
-      @include column(22);
-        @include column-break($tablet, 16);
-          @include column-break($laptop, 11);
-            @include column-break($desktop, 12);
-      justify-content: space-between;
+      @include column-scale(
+        $default: 22,
+        $on-tablet: 16,
+        $on-laptop: 11,
+        $on-desktop: 12
+      );
       padding: 0;
+      @include y-pad($space-lighter);
       @include oneway-margin-until($laptop, $outer-space-medium);
       background-color: transparent;
       box-shadow: none;
-      label, h4 {display: none;}
+      
+      label, h3 {display: none;}
       
       #clientname, #clientnumber {
         @include column(24);
@@ -91,14 +92,15 @@ export default {
     }
     
     .secondary-contacts {
-      @include column(22);
-      @include medium-card();
+      @include column-scale(
+        $default: 22,
+        $on-tablet: 16,
+        $on-laptop: 11,
+        $on-desktop: 9
+      );
+      @include content-card(medium);
       font-size: 1rem;
-        @include column-break($tablet, 16);
-          @include column-break($laptop, 11);
-            @include column-break($desktop, 9);
 
-      
       .contact-icon {
         height: 40px;
         width: 40px;
@@ -109,10 +111,10 @@ export default {
       .contact-method {
         @include wrapper(start, center);
         padding-bottom: $space-medium;
-        
-        p {
-          @include column(24);
-            @include custom-break(450px, auto);
+                
+        .text {
+          h4 {padding-bottom: $space-lightest;}
+          @include column(18);
         }
         
         &:last-child {

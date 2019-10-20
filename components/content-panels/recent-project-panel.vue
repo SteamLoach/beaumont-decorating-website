@@ -42,15 +42,15 @@ export default {
       overflow: hidden;      
 
       @include column-scale(
-        $on-mobile: 22,
-        $on-fablet: 18,
+        $default: 22,
+        $on-phablet: 18,
         $on-tablet: 11,
         $on-laptop: 7
       );
 
       @include margin-scale(
         bottom,
-          $on-mobile: $outer-space-light,
+          $default: $outer-space-light,
           $on-tablet: $outer-space-medium
       );
       

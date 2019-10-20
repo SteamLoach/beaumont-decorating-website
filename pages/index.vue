@@ -15,12 +15,8 @@
     </page-intro>
     
     <content-panels :panels="Page.contentPanels"></content-panels>
-    
-    <div class="test-row">
-      
-      <div class="test-box">Benis</div>
-      
-    </div>
+  
+    <div class="test-row"></div>
     
   </main>
 
@@ -63,8 +59,11 @@ export default {
       label {display: none;}
     }
   }
-    
   
+  .test-row {
+    @extend %row;
+  }
+    
 </style>
 
 

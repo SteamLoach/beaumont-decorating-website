@@ -50,16 +50,16 @@ export default {
   }  
     
   .service-item {
-    @include medium-card();
+    @include content-card(medium);
     @include column-scale(
-      $on-mobile: 22,
-      $on-fablet: 20,
+      $default: 22,
+      $on-phablet: 20,
       $on-tablet: 11, 
       $on-laptop: 7
       );
     @include margin-scale(
       bottom,
-        $on-mobile: $outer-space-light,
+        $default: $outer-space-light,
         $on-tablet: $outer-space-medium
       );
 

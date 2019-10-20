@@ -1,16 +1,4 @@
-////VARIABLES
-
-//Nav
-$mobile-nav-height: 70px;
-$tablet-nav-height: 75px;
-
-
 ////MIXINS & CLASS DEFAULTS
-%active-nav-link {
-  color: $offset-font-color;
-  background-image: url('~assets/navbar_swatch.png');
-  background-repeat: no-repeat;
-  background-position: center; 
-}
+
 
 

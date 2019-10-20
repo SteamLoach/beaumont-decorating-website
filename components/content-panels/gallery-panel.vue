@@ -76,16 +76,20 @@ export default {
     
   .slide-gallery {
     @include container(center, center);
-    @include column-scale(22, 22, 20, 24, 20);
-    @include y-pad($space-medium);
-    @include under-shadow();
-    border-radius: $border-radius;
+    @include content-card(medium);
+    @include x-pad-until($tablet, $space-lightest)
+    @include column-scale(
+      $default: 22,
+      $on-tablet: 24,
+    );
+    
+
   }
   
   .gallery-aperture {
     @include column-scale(20);
     overflow: hidden;
-    background-color: $shade-lightest;
+    background-color: $shade-lighter;
   }
   
   .image-strip {
@@ -99,7 +103,14 @@ export default {
   
   .image-wrapper {
     @include wrapper(center, center);
-    @include height-scale(250px, 275px, 375px, 500px, 575px, 650px);
+    @include height-scale(
+      $default: 250px,
+      $on-lrg-mobile: 275px,
+      $on-phablet: 365px,
+      $on-tablet: 500px,
+      $on-laptop: 575px,
+      $on-desktop: 650px,
+    );
     min-width: 100%;
     max-width: 100%;
     
@@ -121,13 +132,21 @@ export default {
     z-index: 1;
     padding: $space-lightest;
       @include xy-pad-from($tablet, $space-light);
-    @include font-size-from($fablet, 1.2rem);
+    @include font-size-from($phablet, 1.2rem);
       @include font-size-from($tablet, 1.6rem);
+    
+    @include standard-transition(all);
     &:hover {cursor: pointer;}
   }
   
-  .next-image {right: 0;}
-  .previous-image {left: 0;}
+  .next-image {
+    right: 0;
+    &:hover {right: -5px;}
+  }
+  .previous-image {
+    left: 0;
+    &:hover {left: -5px;}
+  }
   
   
   
