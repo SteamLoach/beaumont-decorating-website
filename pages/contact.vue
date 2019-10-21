@@ -4,26 +4,28 @@
   
     <section class="primary-contact-panel">
   
-      <div class="panel-inner">
-        <contact-form></contact-form>
+      <h2 class="content-panel-title"><span> {{Page.pageTitle}} </span></h2>
+      
+      <div class="content-panel-inner">
         
+        <contact-form></contact-form>
         <article class="secondary-contacts">
           <h3>Contact Info</h3>
           <div class="contact-method">
             <svg-loader class="icon" :icon="'phone-icon'"></svg-loader>
-            <p class="text">07972 797 897</p>
+            <p class="text"> {{siteSettings.phoneNumber}} </p>
           </div>
       
           <div class="contact-method">
             <svg-loader class="icon" :icon="'facebook-icon'"></svg-loader>
-            <p class="text">Find Us On Facebook</p>
+            <a class="text" :href="siteSettings.facebookLink">Find Us On Facebook</a>
           </div>
       
           <div class="contact-method">
             <svg-loader class="icon" :icon="'location-icon'"></svg-loader>
             <div class="text">
               <h4>Serving</h4>
-              <p>Chesterfield, Sheffield, Alfreton, Matlock, Clay Cross</p>
+              <p> {{siteSettings.serviceArea}} </p>
             </div>  
           </div>
     </article>
@@ -41,6 +43,17 @@
 
 export default {
   
+  computed: {
+    
+    siteSettings: function() {
+      return this.$store.state.cms.siteSettings;
+    },
+    
+    Page: function() {
+      return this.$store.state.cms.contactPage;
+    }
+  }
+  
 }
 
 </script>
@@ -54,15 +67,9 @@ export default {
   }
   
   .primary-contact-panel {
-    @include row(center, center);
-  
-    .panel-inner {
-      @include container(around, start);
-      max-width: $max-content-width;
-      //Think about moving this to a higher variable ($panel-y-padding or something)
-      @include y-pad($outer-space-heavy);
-    }
-    
+    @extend %content-panel;
+    @include y-margin($outer-space-heavy);
+      
     .contact-form {
       @include column-scale(
         $default: 22,

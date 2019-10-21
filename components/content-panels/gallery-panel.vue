@@ -1,6 +1,6 @@
 <template>
 
-  <article class="content-panel image-gallery-panel">
+  <article class="gallery-panel">
   
     <h2 class="content-panel-title"><span> {{content.title}} </span></h2>
     
@@ -73,6 +73,10 @@ export default {
 
 
 <style lang="scss">
+  
+  .gallery-panel {
+    @extend %content-panel;
+  }
     
   .slide-gallery {
     @include container(center, center);
@@ -82,8 +86,6 @@ export default {
       $default: 22,
       $on-tablet: 24,
     );
-    
-
   }
   
   .gallery-aperture {

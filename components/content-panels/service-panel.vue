@@ -1,6 +1,6 @@
 <template>
 
-  <article class="content-panel service-panel"
+  <article class="service-panel"
            :class="content.classExtensions">
     
     <h2 class="content-panel-title"><span> {{content.title}} </span></h2>
@@ -37,6 +37,7 @@ export default {
 <style lang="scss">
   
   .service-panel {
+    @extend %content-panel;
     background-color: $brand-shade-1;
     
     .service-icon {

@@ -1,6 +1,6 @@
 <template>
 
-  <section class="content-panel recent-project-panel">
+  <section class="recent-project-panel">
   
     <h2 class="content-panel-title"><span> {{content.title}} </span></h2>
     
@@ -36,6 +36,7 @@ export default {
 <style lang="scss">
 
   .recent-project-panel {
+    @extend %content-panel;
     
     .recent-project-item {
       position: relative;

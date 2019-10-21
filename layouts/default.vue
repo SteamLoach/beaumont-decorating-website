@@ -4,17 +4,20 @@
     <div class="lightbox-overlay"
          :class="{'is-active': overlayState}"></div>
     <nuxt />
+    <site-footer></site-footer>
   </div>
 </template>
 
 <script>
   
 import topNav from '~/components/top-nav/top-nav.vue' ; 
+import siteFooter from '~/components/site-footer.vue';
   
 export default {
   
   components: {
     topNav,
+    siteFooter
   },
   
   computed: {

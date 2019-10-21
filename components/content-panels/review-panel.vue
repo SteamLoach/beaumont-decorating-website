@@ -1,6 +1,6 @@
 <template>
 
-  <article class="content-panel review-panel">
+  <article class="review-panel">
     
     <h2 class="content-panel-title"><span> {{content.title}}</span></h2>
     
@@ -41,6 +41,7 @@ export default {
 <style lang="scss">
 
   .review-panel {
+    @extend %content-panel;
     background-color: $shade-lightest;
     
     .review-item {

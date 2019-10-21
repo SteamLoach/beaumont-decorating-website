@@ -36,11 +36,6 @@ export default {
 
   //Content Panels
   .content-panel-wrapper {@extend %content-panel-wrapper;}
-  .content-panel {@extend %content-panel;}
-  .content-panel-title {@extend %content-panel-title;}
-  
-  //Content Items
-  .content-panel-inner {@extend %content-panel-inner;}
 
 </style>
 

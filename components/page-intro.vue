@@ -1,6 +1,6 @@
 <template>    
   
-  <article class="content-panel intro-panel">
+  <article class="intro-panel">
     
     <div class="content-panel-inner">
       
@@ -38,7 +38,8 @@ export default {
 <style lang="scss">
 
   .intro-panel {
-        
+    @extend %content-panel;
+    
     .content-left {
       @include column-scale(
         $default: 22,
