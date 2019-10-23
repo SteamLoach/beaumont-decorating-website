@@ -15,8 +15,6 @@
     </page-intro>
     
     <content-panels :panels="Page.contentPanels"></content-panels>
-  
-    <div class="test-row"></div>
     
   </main>
 
@@ -50,18 +48,12 @@ export default {
 <style lang="scss">
   
   .homepage-intro {
-   
-    @include y-pad($space-heaviest);
     
     .contact-form {
       @include absolute-from($laptop, $bottom: -15%);
       
       label {display: none;}
     }
-  }
-  
-  .test-row {
-    @extend %row;
   }
     
 </style>

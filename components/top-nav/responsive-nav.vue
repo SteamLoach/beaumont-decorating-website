@@ -35,21 +35,11 @@ export default {
 <style lang="scss">
   
   .responsive-nav {
-    overflow-y: scroll;
-    @include hidden-from($laptop);
-    position: absolute;
-    @include column(20);
+    @include responsive-nav();
     @include y-pad($space-heaviest);
-    height: 100vh;
-    right: -100%;
-    top: 0;
-    text-align: center;
-    background-color: $page-background;
-    @include standard-transition(right);
-    transition-timing-function: linear;
   }
   
-  .responsive-nav-inner { 
+  .responsive-nav-inner {
     width: 100%;
   }
   

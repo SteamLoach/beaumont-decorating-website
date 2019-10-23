@@ -1,6 +1,4 @@
 <template>
-
-  <main class="center-all">
   
     <section class="primary-contact-panel">
   
@@ -28,14 +26,11 @@
               <p> {{siteSettings.serviceArea}} </p>
             </div>  
           </div>
-    </article>
+      </article>
       </div>
   
     </section>
     
-  
-  </main>
-
 </template>
 
 
@@ -60,12 +55,7 @@ export default {
 
 
 <style lang="scss">
-  
-  .center-all {
-    @include row(center, center);
-    min-height: 100vh;
-  }
-  
+    
   .primary-contact-panel {
     @extend %content-panel;
     @include y-margin($outer-space-heavy);

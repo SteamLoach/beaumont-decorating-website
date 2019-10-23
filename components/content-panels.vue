@@ -16,6 +16,7 @@ import servicePanel from '~/components/content-panels/service-panel.vue';
 import reviewPanel from '~/components/content-panels/review-panel.vue' ; 
 import recentProjectPanel from '~/components/content-panels/recent-project-panel.vue' ;
 import galleryPanel from '~/components/content-panels/gallery-panel.vue' ;
+import richTextBlock from '~/components/content-panels/rich-text-block.vue';
   
 export default {
   
@@ -25,7 +26,8 @@ export default {
     servicePanel,
     reviewPanel,
     recentProjectPanel,
-    galleryPanel
+    galleryPanel,
+    richTextBlock
   }
   
 }

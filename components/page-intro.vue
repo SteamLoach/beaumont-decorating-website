@@ -40,6 +40,10 @@ export default {
   .intro-panel {
     @extend %content-panel;
     
+    .content-panel-inner {
+      @include row(around, stretch);
+    }
+    
     .content-left {
       @include column-scale(
         $default: 22,
@@ -64,7 +68,7 @@ export default {
     }
     
     .content-right {
-      position: relative;
+      @include container(center, center);
       @include column-scale(
         $default: 22,
         $on-tablet: 12
@@ -72,8 +76,7 @@ export default {
     }
     
     .page-intro-icon {
-    width: 100%;
-    height: 250px;
+    height: 300px;
     fill: $brand-1;
     
     .icon-highlight {fill: $brand-accent};

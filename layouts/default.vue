@@ -1,9 +1,9 @@
 <template>
-  <div  class="page-wrapper">
+  <div>
     <top-nav></top-nav>
     <div class="lightbox-overlay"
          :class="{'is-active': overlayState}"></div>
-    <nuxt />
+    <nuxt/>
     <site-footer></site-footer>
   </div>
 </template>
