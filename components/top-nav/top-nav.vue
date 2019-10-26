@@ -10,8 +10,8 @@
            @click="responsiveNavClose"/>
     </nuxt-link>
     
-    
-    <responsive-nav-toggle :state="topNav.state"></responsive-nav-toggle>
+
+    <responsive-nav-toggle :state="topNav.state"></responsive-nav-toggle>    
     <responsive-nav :state="topNav.state"
                     :navLinks="topNav.navLinks"></responsive-nav>
     

@@ -11,7 +11,10 @@
           <h3>Contact Info</h3>
           <div class="contact-method">
             <svg-loader class="icon" :icon="'phone-icon'"></svg-loader>
-            <p class="text"> {{siteSettings.phoneNumber}} </p>
+            <p class="text">
+              <a :href="`tel:${siteSettings.phoneNumber}`">{{siteSettings.phoneNumber}} 
+              </a>
+            </p>
           </div>
       
           <div class="contact-method">
@@ -59,7 +62,11 @@ export default {
   .primary-contact-panel {
     @extend %content-panel;
     @include y-margin($outer-space-heavy);
-      
+    
+    .content-panel-inner {
+      align-items: flex-start;
+    }
+    
     .contact-form {
       @include column-scale(
         $default: 22,

@@ -36,11 +36,11 @@ export default {
   
   .responsive-nav {
     @include responsive-nav();
-    @include y-pad($space-heaviest);
   }
   
   .responsive-nav-inner {
     width: 100%;
+    @include y-margin($outer-space-heavy);
   }
   
   .responsive-nav-link {

@@ -38,7 +38,7 @@
       
       <label for="clientnumber">What's your number?</label>
       <input v-model="formValidation.number"
-             type="number"
+             type="text"
              id="clientnumber"
              name="entry.1088802542"
              placeholder="Your contact number..." required>

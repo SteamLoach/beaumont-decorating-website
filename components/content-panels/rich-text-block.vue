@@ -25,7 +25,7 @@ export default {
 <style lang="scss">
 
   .rich-content-panel {
-    @include content-panel($justify-items: start, $format-children: true);
+    @include content-panel($justify-items: start, $is-opinionated: true);
     margin-top: $outer-space-heavy;
   
     .content-panel-inner {

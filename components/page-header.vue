@@ -56,12 +56,20 @@ export default {
     @include x-pad($space-medium);
     padding-bottom: $space-lighter;
     color: $offset-font-color;
+    @include font-size-scale(
+      $on-tablet: 2.6rem,
+      $on-laptop: 3rem
+    );
     font-weight: 800;
   }
   
   .page-strapline {
     width: 100%;
     padding-bottom: $space-light;
+    @include font-size-scale(
+      $on-tablet: 1.6rem,
+      $on-laptop: 2rem
+    );
   }
 
 </style>
