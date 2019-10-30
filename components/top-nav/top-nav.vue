@@ -7,7 +7,7 @@
                to="/">
       <img class="nav-logo" 
            src=""
-           @click="responsiveNavClose"/>
+           @click="handheldNavClose"/>
     </nuxt-link>
     
 
@@ -19,7 +19,7 @@
     <div class="nav-link-wrapper">
         <div v-for="link in topNav.navLinks"
              :key="link.id"
-             @click="responsiveNavClose"
+             @click="handheldNavClose"
              class="nav-link">
           <nuxt-link :to="link.route"> {{link.title}} </nuxt-link>
         </div>

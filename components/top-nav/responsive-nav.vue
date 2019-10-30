@@ -3,10 +3,14 @@
   <nav class="responsive-nav"
        :class="state">
     
+    <div class="handheld-nav-close">
+      <responsive-nav-toggle :state="state"></responsive-nav-toggle>
+    </div>
+    
     <div class="responsive-nav-inner">
       <div v-for="link in navLinks"
            :key="link.id"
-           @click="responsiveNavClose"
+           @click="handheldNavClose"
            class="responsive-nav-link">
         <nuxt-link :to="link.route"> {{link.title}} </nuxt-link>
       </div>
@@ -19,13 +23,18 @@
 
 <script>
 
-import {navMutations} from './navMutations.js';  
+import {navMutations} from './navMutations.js';   
+import responsiveNavToggle from './responsive-nav-toggle.vue';
   
 export default {
   
   mixins: [navMutations],
   
-  props: ['state', 'navLinks']
+  props: ['state', 'navLinks'],
+  
+  components: {
+    responsiveNavToggle,
+  }
     
 }
   
@@ -35,12 +44,35 @@ export default {
 <style lang="scss">
   
   .responsive-nav {
-    @include responsive-nav();
+    z-index: 999;
+    @include hidden-from($laptop);
+    position: absolute;
+      top: 0;
+      right: -100%;
+      &.is-active {right: 0;}
+    @include column(20);
+    height: 100vh;
+    overflow-y: scroll;
+    text-align: center;
+    background-color: $page-background;
+    @include standard-transition(right);
+    transition-timing-function: linear;
+    
+    .nav-toggle {
+      transition-delay: 0.2s;
+    }
+    
+    
+    
+  }
+  
+  .handheld-nav-close {
+    padding: $space-lighter;
+    text-align: right;
   }
   
   .responsive-nav-inner {
     width: 100%;
-    @include y-margin($outer-space-heavy);
   }
   
   .responsive-nav-link {
@@ -64,11 +96,5 @@ export default {
     }
     
   }
-  
-  .responsive-nav.is-active {
-    right: 0; 
-  }
-  
-  
 
 </style>

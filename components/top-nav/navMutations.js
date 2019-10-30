@@ -4,8 +4,8 @@ export const navMutations = {
   
   methods: {
     ...mapMutations({
-      responsiveNavToggle: 'menus/responsiveNavToggle',
-      responsiveNavClose: 'menus/responsiveNavClose',
+      handheldNavToggle: 'menus/handheldNavToggle',
+      handheldNavClose: 'menus/handheldNavClose',
       navSticky: 'menus/navSticky',
       navStatic: 'menus/navStatic'
     })
