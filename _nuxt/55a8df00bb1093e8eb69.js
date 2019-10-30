@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{437:function(t,e,n){"use strict";n.r(e);var c={computed:{Page:function(){return this.$store.state.cms.privacyPage}}},r=n(3),component=Object(r.a)(c,function(){var t=this.$createElement;return(this._self._c||t)("content-panels",{attrs:{panels:this.Page.contentPanels}})},[],!1,null,null,null);e.default=component.exports}}]);
